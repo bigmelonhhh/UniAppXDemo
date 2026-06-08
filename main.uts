@@ -1,0 +1,15 @@
+import App from './App.uvue'
+
+import { createSSRApp } from 'vue'
+
+/**
+ * 创建 uni-app x 应用实例。
+ *
+ * @returns 返回包含根应用实例的对象，供 uni-app x 运行时挂载。
+ */
+export function createApp() {
+	const app = createSSRApp(App)
+	return {
+		app
+	}
+}

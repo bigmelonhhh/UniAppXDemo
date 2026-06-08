@@ -1,0 +1,66 @@
+<template>
+	<view class="ui-empty-state">
+		<view class="ui-empty-state__badge">
+			<text class="ui-empty-state__badge-text">{{ badgeText }}</text>
+		</view>
+		<text class="ui-empty-state__title">{{ title }}</text>
+		<text class="ui-empty-state__description">{{ description }}</text>
+		<slot />
+	</view>
+</template>
+
+<script lang="uts">
+/**
+ * 当前为仓库内的空态桥接组件。
+ * 组件默认展示“占位桥接”标识，用于明确当前仍处于真实 `uni-ui x` 导入前的准备阶段。
+ */
+export default {
+	props: {
+		badgeText: {
+			type: String,
+			default: '占位桥接',
+		},
+		title: {
+			type: String,
+			default: '',
+		},
+		description: {
+			type: String,
+			default: '',
+		},
+	},
+}
+</script>
+
+<style>
+	.ui-empty-state {
+		padding: 8px 0;
+		flex-direction: column;
+	}
+
+	.ui-empty-state__badge {
+		align-self: flex-start;
+		padding: 4px 10px;
+		border-radius: 999px;
+		background-color: #eef2ff;
+	}
+
+	.ui-empty-state__badge-text {
+		font-size: 12px;
+		color: #4f46e5;
+	}
+
+	.ui-empty-state__title {
+		margin-top: 12px;
+		font-size: 18px;
+		font-weight: 600;
+		color: #111827;
+	}
+
+	.ui-empty-state__description {
+		margin-top: 8px;
+		font-size: 14px;
+		line-height: 22px;
+		color: #667085;
+	}
+</style>

@@ -1,0 +1,7 @@
+{
+  "name": "zyk-uniappx",
+  "private": true,
+  "scripts": {
+    "lint": "node ./scripts/lint.mjs"
+  }
+}

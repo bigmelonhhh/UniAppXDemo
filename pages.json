@@ -1,0 +1,60 @@
+{
+	"pages": [ // pages 数组中第一项表示应用启动页
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "智医康",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/history/index",
+			"style": {
+				"navigationBarTitleText": "历史对话"
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "健康档案"
+			}
+		},
+		{
+			"path": "pages/settings/index",
+			"style": {
+				"navigationBarTitleText": "系统设置"
+			}
+		},
+		{
+			"path": "pages/account/index",
+			"style": {
+				"navigationBarTitleText": "账号设置"
+			}
+		},
+		{
+			"path": "pages/feedback/index",
+			"style": {
+				"navigationBarTitleText": "举报与反馈"
+			}
+		},
+		{
+			"path": "pages/about/index",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
+		},
+		{
+			"path": "pages/integration/uni-ui-x-ready",
+			"style": {
+				"navigationBarTitleText": "uni-ui x 接入准备"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "智医康",
+		"navigationBarBackgroundColor": "#EEF5F3",
+		"backgroundColor": "#EEF5F3"
+	},
+	"uniIdRouter": {}
+}

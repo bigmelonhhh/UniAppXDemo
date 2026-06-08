@@ -1,0 +1,301 @@
+<template>
+	<view class="app-screen app-screen--gradient">
+		<view class="home-top-bar app-row app-space-between app-center">
+			<view class="app-row app-center">
+				<image class="home-logo" src="/static/logo.png"></image>
+				<view class="home-brand app-stack">
+					<text class="home-brand__title">{{ brandName }}</text>
+					<text class="home-brand__subtitle">{{ brandSubtitle }}</text>
+				</view>
+			</view>
+
+			<navigator class="home-history-entry" :url="routeHistory">
+				<text class="home-history-entry__text">历史会话</text>
+			</navigator>
+		</view>
+
+		<view class="home-tabs app-row">
+			<view class="app-pill app-pill--active">
+				<text>对话</text>
+			</view>
+			<view class="app-pill">
+				<text>硬件</text>
+			</view>
+		</view>
+
+		<view class="app-card app-card--hero">
+			<view class="app-row app-space-between">
+				<view class="home-hero__content app-stack">
+					<text class="home-hero__title">{{ greetingTitle }}</text>
+					<text class="home-hero__subtitle">{{ greetingSubtitle }}</text>
+				</view>
+				<view class="home-hero__badge">
+					<text class="home-hero__badge-text">AI</text>
+				</view>
+			</view>
+
+			<text class="home-hero__tips-title">{{ greetingTipsTitle }}</text>
+			<text class="home-hero__tips-content">{{ greetingTipsContent }}</text>
+
+			<view class="home-hero__advice">
+				<text class="home-hero__advice-text">{{ greetingAdvice }}</text>
+			</view>
+		</view>
+
+		<UiSectionCard title="快捷入口" description="按照参考稿信息架构串联核心浏览路径。">
+			<view class="app-row">
+				<navigator class="app-link-card" :url="routeHistory">
+					<text class="app-link-card__title">历史对话</text>
+					<text class="app-link-card__desc">查看既往咨询记录</text>
+				</navigator>
+				<navigator class="app-link-card" :url="routeProfile">
+					<text class="app-link-card__title">健康档案</text>
+					<text class="app-link-card__desc">浏览个人健康摘要</text>
+				</navigator>
+				<navigator class="app-link-card" :url="routeSettings">
+					<text class="app-link-card__title">系统设置</text>
+					<text class="app-link-card__desc">管理账号与服务说明</text>
+				</navigator>
+			</view>
+		</UiSectionCard>
+
+		<view class="home-chat-list app-stack">
+			<view class="home-bubble home-bubble--assistant">
+				<text class="home-bubble__text">
+					关于您提到的“2112”，根据医疗 AI 分析建议您注意休息并保持良好作息。如症状持续，请及时就医。
+				</text>
+			</view>
+			<view class="home-bubble home-bubble--user">
+				<text class="home-bubble__text home-bubble__text--user">2112</text>
+			</view>
+		</view>
+
+		<view class="app-card app-card--soft">
+			<text class="app-section-title">常用服务</text>
+			<view class="home-service-grid app-row">
+				<view class="home-service-grid__item">
+					<view class="home-service-card">
+						<text class="home-service-card__title">健康咨询</text>
+						<text class="home-service-card__desc">真人医生在线解答</text>
+					</view>
+				</view>
+				<view class="home-service-grid__item">
+					<view class="home-service-card">
+						<text class="home-service-card__title">用药提醒</text>
+						<text class="home-service-card__desc">系统级提醒你吃药</text>
+					</view>
+				</view>
+				<view class="home-service-grid__item">
+					<navigator class="home-service-card" :url="routeAbout">
+						<text class="home-service-card__title">关于我们</text>
+						<text class="home-service-card__desc">查看平台与团队说明</text>
+					</navigator>
+				</view>
+			</view>
+		</view>
+
+		<view class="app-input-shell">
+			<text class="app-input-placeholder">{{ inputPlaceholder }}</text>
+			<text class="app-muted-note">{{ footerNote }}</text>
+		</view>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	HOME_BRAND_NAME,
+	HOME_BRAND_SUBTITLE,
+	HOME_FOOTER_NOTE,
+	HOME_GREETING_ADVICE,
+	HOME_GREETING_SUBTITLE,
+	HOME_GREETING_TIPS_CONTENT,
+	HOME_GREETING_TIPS_TITLE,
+	HOME_GREETING_TITLE,
+	HOME_INPUT_PLACEHOLDER,
+	ROUTE_ABOUT,
+	ROUTE_HISTORY,
+	ROUTE_PROFILE,
+	ROUTE_SETTINGS
+} from '../../constants/demo-data.uts'
+
+const brandName = HOME_BRAND_NAME
+const brandSubtitle = HOME_BRAND_SUBTITLE
+const greetingTitle = HOME_GREETING_TITLE
+const greetingSubtitle = HOME_GREETING_SUBTITLE
+const greetingTipsTitle = HOME_GREETING_TIPS_TITLE
+const greetingTipsContent = HOME_GREETING_TIPS_CONTENT
+const greetingAdvice = HOME_GREETING_ADVICE
+const inputPlaceholder = HOME_INPUT_PLACEHOLDER
+const footerNote = HOME_FOOTER_NOTE
+const routeHistory = ROUTE_HISTORY
+const routeProfile = ROUTE_PROFILE
+const routeSettings = ROUTE_SETTINGS
+const routeAbout = ROUTE_ABOUT
+</script>
+
+<style>
+	.home-top-bar {
+		margin-top: 4px;
+	}
+
+	.home-logo {
+		width: 40px;
+		height: 40px;
+		border-radius: 12px;
+	}
+
+	.home-brand {
+		margin-left: 10px;
+	}
+
+	.home-brand__title {
+		font-size: 18px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.home-brand__subtitle {
+		margin-top: 4px;
+		font-size: 12px;
+		color: #00a995;
+	}
+
+	.home-history-entry {
+		padding: 10px 14px;
+		border-radius: 999px;
+		background-color: #ffffff;
+	}
+
+	.home-history-entry__text {
+		font-size: 13px;
+		color: #173a4a;
+	}
+
+	.home-tabs {
+		margin-top: 16px;
+	}
+
+	.home-tabs .app-pill + .app-pill {
+		margin-left: 8px;
+	}
+
+	.home-hero__content {
+		flex: 1;
+	}
+
+	.home-hero__title {
+		font-size: 28px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.home-hero__subtitle {
+		margin-top: 8px;
+		font-size: 16px;
+		line-height: 22px;
+		color: #2a5568;
+	}
+
+	.home-hero__badge {
+		width: 52px;
+		height: 52px;
+		border-radius: 26px;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffffff;
+	}
+
+	.home-hero__badge-text {
+		font-size: 18px;
+		font-weight: 700;
+		color: #2f80ed;
+	}
+
+	.home-hero__tips-title {
+		margin-top: 18px;
+		font-size: 18px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.home-hero__tips-content {
+		margin-top: 10px;
+		font-size: 15px;
+		line-height: 24px;
+		color: #425c6d;
+	}
+
+	.home-hero__advice {
+		margin-top: 16px;
+		padding: 14px;
+		border-radius: 18px;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	.home-hero__advice-text {
+		font-size: 14px;
+		line-height: 22px;
+		color: #183b4d;
+	}
+
+	.home-chat-list {
+		margin-top: 16px;
+	}
+
+	.home-bubble {
+		max-width: 280px;
+		padding: 14px 16px;
+		border-radius: 18px;
+		background-color: #ffffff;
+	}
+
+	.home-bubble + .home-bubble {
+		margin-top: 12px;
+	}
+
+	.home-bubble--user {
+		align-self: flex-end;
+		background-color: #2f80ed;
+	}
+
+	.home-bubble__text {
+		font-size: 15px;
+		line-height: 24px;
+		color: #183b4d;
+	}
+
+	.home-bubble__text--user {
+		color: #ffffff;
+	}
+
+	.home-service-grid {
+		margin-top: 14px;
+		flex-wrap: wrap;
+	}
+
+	.home-service-grid__item {
+		width: 104px;
+		padding-right: 8px;
+		box-sizing: border-box;
+	}
+
+	.home-service-card {
+		padding: 12px;
+		border-radius: 18px;
+		background-color: #ffffff;
+	}
+
+	.home-service-card__title {
+		font-size: 14px;
+		font-weight: 600;
+		color: #183b4d;
+	}
+
+	.home-service-card__desc {
+		margin-top: 6px;
+		font-size: 12px;
+		line-height: 18px;
+		color: #73808e;
+	}
+</style>

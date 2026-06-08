@@ -1,0 +1,178 @@
+<template>
+	<view class="app-screen app-screen--gradient">
+		<UiNavBar title="健康档案" subtitle="基于静态演示数据呈现个人健康摘要与设置入口。" />
+
+		<view class="app-card app-card--hero">
+			<text class="app-badge">{{ tag }}</text>
+			<text class="profile-name">{{ name }}</text>
+
+			<view class="profile-avatar">
+				<text class="profile-avatar__text">王</text>
+			</view>
+
+			<view class="profile-stats app-row">
+				<view class="profile-stat">
+					<text class="profile-stat__value">男</text>
+					<text class="profile-stat__label">性别</text>
+				</view>
+				<view class="profile-stat">
+					<text class="profile-stat__value">38 岁</text>
+					<text class="profile-stat__label">年龄</text>
+				</view>
+				<view class="profile-stat">
+					<text class="profile-stat__value">22.9</text>
+					<text class="profile-stat__label">BMI</text>
+				</view>
+				<view class="profile-stat">
+					<text class="profile-stat__value">正常</text>
+					<text class="profile-stat__label">状态</text>
+				</view>
+			</view>
+		</view>
+
+		<UiSectionCard title="快捷入口" description="保持与参考稿相近的信息组织方式，聚合设置相关页面。">
+			<view class="profile-grid app-row">
+				<view class="profile-grid__item">
+					<navigator class="profile-action-card" :url="routeSettings">
+						<text class="profile-action-card__title">系统设置</text>
+						<text class="profile-action-card__desc">管理服务入口</text>
+					</navigator>
+				</view>
+				<view class="profile-grid__item">
+					<navigator class="profile-action-card" :url="routeAccount">
+						<text class="profile-action-card__title">账号设置</text>
+						<text class="profile-action-card__desc">维护登录与绑定</text>
+					</navigator>
+				</view>
+				<view class="profile-grid__item">
+					<navigator class="profile-action-card" :url="routeFeedback">
+						<text class="profile-action-card__title">举报反馈</text>
+						<text class="profile-action-card__desc">提交问题与建议</text>
+					</navigator>
+				</view>
+				<view class="profile-grid__item">
+					<navigator class="profile-action-card" :url="routeAbout">
+						<text class="profile-action-card__title">关于我们</text>
+						<text class="profile-action-card__desc">查看平台说明</text>
+					</navigator>
+				</view>
+			</view>
+		</UiSectionCard>
+
+		<UiSectionCard title="健康建议" description="当前阶段仅做静态展示，不接真实健康接口。">
+			<text class="profile-note">{{ healthNote }}</text>
+		</UiSectionCard>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	PROFILE_HEALTH_NOTE,
+	PROFILE_NAME,
+	PROFILE_TAG,
+	ROUTE_ABOUT,
+	ROUTE_ACCOUNT,
+	ROUTE_FEEDBACK,
+	ROUTE_SETTINGS
+} from '../../constants/demo-data.uts'
+
+const tag = PROFILE_TAG
+const name = PROFILE_NAME
+const healthNote = PROFILE_HEALTH_NOTE
+const routeSettings = ROUTE_SETTINGS
+const routeAccount = ROUTE_ACCOUNT
+const routeFeedback = ROUTE_FEEDBACK
+const routeAbout = ROUTE_ABOUT
+</script>
+
+<style>
+	.profile-name {
+		margin-top: 12px;
+		font-size: 24px;
+		font-weight: 700;
+		text-align: center;
+		color: #183b4d;
+	}
+
+	.profile-avatar {
+		width: 160px;
+		height: 160px;
+		margin-top: 20px;
+		align-self: center;
+		border-radius: 80px;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffffff;
+		border-width: 8px;
+		border-style: solid;
+		border-color: #b9ece4;
+	}
+
+	.profile-avatar__text {
+		font-size: 56px;
+		font-weight: 700;
+		color: #2f80ed;
+	}
+
+	.profile-stats {
+		margin-top: 20px;
+		flex-wrap: wrap;
+	}
+
+	.profile-stat {
+		width: 160px;
+		margin-top: 12px;
+		align-items: center;
+	}
+
+	.profile-stat__value {
+		font-size: 22px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.profile-stat__label {
+		margin-top: 6px;
+		font-size: 13px;
+		color: #73808e;
+	}
+
+	.profile-grid {
+		flex-wrap: wrap;
+		margin-left: -6px;
+		margin-right: -6px;
+	}
+
+	.profile-grid__item {
+		width: 160px;
+		padding: 6px;
+		box-sizing: border-box;
+	}
+
+	.profile-action-card {
+		padding: 14px;
+		border-radius: 18px;
+		background-color: #f6fbfa;
+	}
+
+	.profile-action-card__title {
+		font-size: 15px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.profile-action-card__desc {
+		margin-top: 8px;
+		font-size: 12px;
+		line-height: 18px;
+		color: #73808e;
+	}
+
+	.profile-note {
+		font-size: 14px;
+		line-height: 22px;
+		color: #526677;
+	}
+</style>

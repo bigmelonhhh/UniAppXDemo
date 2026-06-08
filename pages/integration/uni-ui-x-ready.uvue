@@ -1,0 +1,57 @@
+<template>
+	<view class="page-shell">
+		<UiNavBar title="uni-ui x 接入已完成" subtitle="已从官方开源仓库引入真实 uni-nav-bar-x，并由桥接层复用。" />
+
+		<UiSectionCard title="当前状态" description="此页面用于说明项目当前的真实接入状态。">
+			<UiEmptyState
+				title="已导入真实 uni-ui x 组件"
+				description="项目已将官方 uni-nav-bar-x 落入 uni_modules，并在 UiNavBar 桥接层中完成实际复用。"
+			/>
+		</UiSectionCard>
+
+		<UiSectionCard title="已完成内容" description="这些内容已在仓库中落地，可直接作为后续接入支点。">
+			<view class="info-list">
+				<text class="info-list__item">1. 建立 `components/ui/*` 基础桥接组件</text>
+				<text class="info-list__item">2. 引入官方 alpha 仓库中的真实 `uni-nav-bar-x` 组件源码</text>
+				<text class="info-list__item">3. 保持业务层继续通过 `UiNavBar` 间接复用真实组件</text>
+				<text class="info-list__item">4. 维持现有页面路由与引用面稳定</text>
+			</view>
+		</UiSectionCard>
+
+		<UiSectionCard title="后续操作建议" description="建议继续按低风险基础组件逐步扩展真实复用范围。">
+			<view class="info-list">
+				<text class="info-list__item">1. 后续可优先补充 `uni-link`、`uni-rate` 等低风险组件</text>
+				<text class="info-list__item">2. 业务页面仍优先依赖 `components/ui/*` 桥接层</text>
+				<text class="info-list__item">3. 其余轻量卡片与空态继续保留项目自研实现</text>
+			</view>
+		</UiSectionCard>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiEmptyState from '../../components/ui/UiEmptyState.uvue'
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+</script>
+
+<style>
+	.page-shell {
+		padding-bottom: 16px;
+		background-color: #f5f7fb;
+	}
+
+	.info-list {
+		flex-direction: column;
+	}
+
+	.info-list__item {
+		margin-top: 10px;
+		font-size: 14px;
+		line-height: 22px;
+		color: #344054;
+	}
+
+	.info-list__item:first-child {
+		margin-top: 0;
+	}
+</style>

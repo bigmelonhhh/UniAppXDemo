@@ -1,0 +1,60 @@
+<template>
+	<view class="ui-section-card">
+		<view v-if="title.length > 0 || description.length > 0" class="ui-section-card__header">
+			<text v-if="title.length > 0" class="ui-section-card__title">{{ title }}</text>
+			<text v-if="description.length > 0" class="ui-section-card__description">{{ description }}</text>
+		</view>
+		<view class="ui-section-card__body">
+			<slot />
+		</view>
+	</view>
+</template>
+
+<script lang="uts">
+/**
+ * 当前为仓库内的通用区块卡片桥接组件。
+ * 该组件优先保持项目自研，用于承载页面分组、说明块和轻量内容容器，
+ * 不强制映射到具体 `uni-ui x` 组件，避免为了接入而接入。
+ */
+export default {
+	props: {
+		title: {
+			type: String,
+			default: '',
+		},
+		description: {
+			type: String,
+			default: '',
+		},
+	},
+}
+</script>
+
+<style>
+	.ui-section-card {
+		margin: 0 16px 16px;
+		padding: 16px;
+		border-radius: 16px;
+		background-color: #ffffff;
+	}
+
+	.ui-section-card__header {
+		margin-bottom: 10px;
+	}
+
+	.ui-section-card__title {
+		font-size: 16px;
+		font-weight: 600;
+		color: #111827;
+	}
+
+	.ui-section-card__description {
+		margin-top: 6px;
+		font-size: 13px;
+		color: #667085;
+	}
+
+	.ui-section-card__body {
+		flex-direction: column;
+	}
+</style>

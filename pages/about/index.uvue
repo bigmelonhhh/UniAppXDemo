@@ -1,0 +1,110 @@
+<template>
+	<view class="app-screen">
+		<UiNavBar title="关于我们" subtitle="查看平台介绍、版本信息与企业说明。" />
+
+		<view class="app-card about-brand-card">
+			<image class="about-brand-card__logo" src="/static/logo.png"></image>
+			<text class="about-brand-card__title">{{ brandTitle }}</text>
+			<text class="about-brand-card__product">{{ productName }}</text>
+			<text class="about-brand-card__slogan">{{ slogan }}</text>
+			<text class="about-brand-card__version">{{ version }}</text>
+		</view>
+
+		<UiSectionCard title="平台介绍" description="以下文案使用静态演示内容集中驱动。">
+			<view class="app-stack">
+				<text class="about-paragraph">{{ paragraphOne }}</text>
+				<text class="about-paragraph">{{ paragraphTwo }}</text>
+			</view>
+		</UiSectionCard>
+
+		<UiSectionCard title="联系信息" description="保持与 H5 参考图一致的落款信息层级。">
+			<view class="app-stack">
+				<text class="about-footer-line">{{ footerLineOne }}</text>
+				<text class="about-footer-line">{{ footerLineTwo }}</text>
+				<text class="about-footer-line">{{ footerLineThree }}</text>
+				<text class="about-footer-line">{{ footerLineFour }}</text>
+			</view>
+		</UiSectionCard>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	ABOUT_BRAND_TITLE,
+	ABOUT_PRODUCT_NAME,
+	ABOUT_SLOGAN,
+	ABOUT_VERSION
+} from '../../constants/demo-data.uts'
+
+const brandTitle = ABOUT_BRAND_TITLE
+const productName = ABOUT_PRODUCT_NAME
+const slogan = ABOUT_SLOGAN
+const version = ABOUT_VERSION
+const paragraphOne = '上海智医康科技有限公司是一家专注于癌病数字化疗法的前沿医疗科技企业。我们深度融合 AI 大模型能力与医疗数据规则，帮助患者获得更连续、更可解释的健康陪伴。'
+const paragraphTwo = '平台以静态演示方式还原健康咨询、健康档案与账号服务等核心信息架构，为后续真实接口接入和多端联调提供统一的页面基础。'
+const footerLineOne = '© 2026 上海智医康科技有限公司'
+const footerLineTwo = '沪 ICP 备 2024092528 号-4'
+const footerLineThree = '地址：上海市徐汇区龙兰路 200 号 2 号楼 302'
+const footerLineFour = '邮箱：kefu@izencare.com | 电话：4006898982'
+</script>
+
+<style>
+	.about-brand-card {
+		align-items: center;
+	}
+
+	.about-brand-card__logo {
+		width: 72px;
+		height: 72px;
+		border-radius: 20px;
+	}
+
+	.about-brand-card__title {
+		margin-top: 14px;
+		font-size: 24px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.about-brand-card__product {
+		margin-top: 12px;
+		font-size: 20px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.about-brand-card__slogan {
+		margin-top: 8px;
+		font-size: 14px;
+		color: #73808e;
+	}
+
+	.about-brand-card__version {
+		margin-top: 8px;
+		font-size: 15px;
+		color: #526677;
+	}
+
+	.about-paragraph {
+		font-size: 14px;
+		line-height: 24px;
+		color: #526677;
+	}
+
+	.about-paragraph + .about-paragraph {
+		margin-top: 12px;
+	}
+
+	.about-footer-line {
+		font-size: 13px;
+		line-height: 22px;
+		text-align: center;
+		color: #73808e;
+	}
+
+	.about-footer-line + .about-footer-line {
+		margin-top: 6px;
+	}
+</style>

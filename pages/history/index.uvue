@@ -1,0 +1,94 @@
+<template>
+	<view class="app-screen">
+		<UiNavBar title="历史对话" subtitle="查看近期健康咨询记录与快速回到新对话入口。" />
+
+		<navigator class="app-card history-new-chat" :url="newChatRoute">
+			<text class="history-new-chat__title">{{ newChatTitle }}</text>
+			<text class="history-new-chat__desc">继续发起新的健康问题咨询</text>
+		</navigator>
+
+		<UiSectionCard :title="historyTitle" description="静态演示记录用于展示信息层级与路由关系。">
+			<view class="app-stack">
+				<navigator class="history-item" :url="routeHome">
+					<view class="app-row app-space-between app-center">
+						<text class="history-item__title">2112</text>
+						<text class="history-item__time">05-13 19:01</text>
+					</view>
+					<text class="history-item__preview">关于您提到的“2112”，根据医疗 AI 分析建议您注意休息并保持规律作息。</text>
+				</navigator>
+				<navigator class="history-item" :url="routeHome">
+					<view class="app-row app-space-between app-center">
+						<text class="history-item__title">睡眠质量偏低</text>
+						<text class="history-item__time">05-11 22:15</text>
+					</view>
+					<text class="history-item__preview">近三日睡眠评分下降，建议晚间减少蓝光刺激并调整入睡时间。</text>
+				</navigator>
+			</view>
+		</UiSectionCard>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	HISTORY_NEW_CHAT_TITLE,
+	HISTORY_TITLE,
+	ROUTE_HOME
+} from '../../constants/demo-data.uts'
+
+const newChatRoute = ROUTE_HOME
+const newChatTitle = HISTORY_NEW_CHAT_TITLE
+const historyTitle = HISTORY_TITLE
+const routeHome = ROUTE_HOME
+</script>
+
+<style>
+	.history-new-chat {
+		margin-top: 0;
+	}
+
+	.history-new-chat__title {
+		font-size: 20px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.history-new-chat__desc {
+		margin-top: 8px;
+		font-size: 14px;
+		line-height: 22px;
+		color: #73808e;
+	}
+
+	.history-item {
+		padding: 14px;
+		border-radius: 16px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #b9ece4;
+		background-color: #f6fbfa;
+	}
+
+	.history-item + .history-item {
+		margin-top: 12px;
+	}
+
+	.history-item__title {
+		font-size: 16px;
+		font-weight: 700;
+		color: #183b4d;
+	}
+
+	.history-item__time {
+		font-size: 12px;
+		color: #8b98a5;
+	}
+
+	.history-item__preview {
+		margin-top: 8px;
+		font-size: 13px;
+		line-height: 20px;
+		color: #667789;
+	}
+</style>

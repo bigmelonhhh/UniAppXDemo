@@ -1,0 +1,64 @@
+<template>
+	<view class="app-screen">
+		<UiNavBar title="举报与反馈" subtitle="静态展示反馈信息结构与提交区域。" />
+
+		<view class="app-card">
+			<text class="app-eyebrow">{{ eyebrow }}</text>
+			<text class="app-title">{{ title }}</text>
+			<text class="app-subtitle">{{ description }}</text>
+		</view>
+
+		<UiSectionCard title="反馈内容" description="当前阶段不接真实接口，只保留输入区样式表达。">
+			<view class="feedback-box">
+				<text class="feedback-box__placeholder">{{ placeholder }}</text>
+				<text class="feedback-box__counter">{{ counter }}</text>
+			</view>
+		</UiSectionCard>
+
+		<view class="app-card">
+			<text class="app-primary-button">{{ submitText }}</text>
+		</view>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	FEEDBACK_COUNTER,
+	FEEDBACK_DESCRIPTION,
+	FEEDBACK_EYEBROW,
+	FEEDBACK_PLACEHOLDER,
+	FEEDBACK_SUBMIT_TEXT,
+	FEEDBACK_TITLE
+} from '../../constants/demo-data.uts'
+
+const eyebrow = FEEDBACK_EYEBROW
+const title = FEEDBACK_TITLE
+const description = FEEDBACK_DESCRIPTION
+const placeholder = FEEDBACK_PLACEHOLDER
+const counter = FEEDBACK_COUNTER
+const submitText = FEEDBACK_SUBMIT_TEXT
+</script>
+
+<style>
+	.feedback-box {
+		min-height: 180px;
+		padding: 16px;
+		border-radius: 18px;
+		background-color: #f7f8fa;
+	}
+
+	.feedback-box__placeholder {
+		font-size: 14px;
+		line-height: 24px;
+		color: #b6bec6;
+	}
+
+	.feedback-box__counter {
+		margin-top: 120px;
+		font-size: 12px;
+		text-align: right;
+		color: #8b98a5;
+	}
+</style>

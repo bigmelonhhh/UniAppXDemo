@@ -1,0 +1,303 @@
+export const ROUTE_HISTORY: string = '/pages/history/index'
+export const ROUTE_PROFILE: string = '/pages/profile/index'
+export const ROUTE_SETTINGS: string = '/pages/settings/index'
+export const ROUTE_ACCOUNT: string = '/pages/account/index'
+export const ROUTE_FEEDBACK: string = '/pages/feedback/index'
+export const ROUTE_ABOUT: string = '/pages/about/index'
+export const ROUTE_HOME: string = '/pages/index/index'
+
+export const APP_ROUTES = {
+	HISTORY: ROUTE_HISTORY,
+	PROFILE: ROUTE_PROFILE,
+	SETTINGS: ROUTE_SETTINGS,
+	ACCOUNT: ROUTE_ACCOUNT,
+	FEEDBACK: ROUTE_FEEDBACK,
+	ABOUT: ROUTE_ABOUT,
+	HOME: ROUTE_HOME
+}
+
+export const HOME_BRAND_NAME: string = '智医康'
+export const HOME_BRAND_SUBTITLE: string = '对话'
+export const HOME_TABS: any[] = [
+	{ label: '对话', active: true },
+	{ label: '硬件', active: false }
+]
+export const HOME_GREETING_TITLE: string = '晚上好~'
+export const HOME_GREETING_SUBTITLE: string = '忙碌一天，注意休息哦'
+export const HOME_GREETING_TIPS_TITLE: string = '健康小提醒'
+export const HOME_GREETING_TIPS_CONTENT: string = '您的体温与血氧指标正常，但当前心率偏高、压力指数波动明显，说明身体正处于紧绷和休息不足的状态。'
+export const HOME_GREETING_ADVICE: string = '建议今天适当放缓节奏，做做深呼吸减压，今晚请提早休息，让身体好好恢复。'
+export const HOME_MESSAGES: any[] = [
+	{
+		id: 'assistant-1',
+		role: 'assistant',
+		content: '关于您提到的“2112”，根据医疗 AI 分析建议您注意休息并保持良好作息。如症状持续，请及时就医。'
+	},
+	{
+		id: 'user-1',
+		role: 'user',
+		content: '2112'
+	}
+]
+export const HOME_QUICK_LINKS: any[] = [
+	{
+		id: 'home-history',
+		title: '历史对话',
+		description: '查看既往咨询记录',
+		route: ROUTE_HISTORY
+	},
+	{
+		id: 'home-profile',
+		title: '健康档案',
+		description: '浏览个人健康摘要',
+		route: ROUTE_PROFILE
+	},
+	{
+		id: 'home-settings',
+		title: '系统设置',
+		description: '管理账号与服务说明',
+		route: ROUTE_SETTINGS
+	}
+]
+export const HOME_SERVICES: any[] = [
+	{ id: 'service-1', title: '健康咨询', description: '真人医生在线解答' },
+	{ id: 'service-2', title: '用药提醒', description: '系统级提醒你吃药' },
+	{ id: 'service-3', title: '关于我们', description: '查看平台与团队说明', route: ROUTE_ABOUT }
+]
+export const HOME_INPUT_PLACEHOLDER: string = '有什么健康问题问我吗'
+export const HOME_FOOTER_NOTE: string = '内容由 AI 生成，仅供参考'
+
+export const HISTORY_USER_NAME: string = '王*'
+export const HISTORY_USER_SUBTITLE: string = '健康档案'
+export const HISTORY_NEW_CHAT_TITLE: string = '新建对话'
+export const HISTORY_NEW_CHAT_ROUTE: string = ROUTE_HOME
+export const HISTORY_TITLE: string = '全部历史对话'
+export const HISTORY_ITEMS: any[] = [
+	{
+		id: 'history-1',
+		title: '2112',
+		preview: '关于您提到的“2112”，根据医疗 AI 分析建议您注意休息并保持规律作息。',
+		time: '05-13 19:01',
+		route: ROUTE_HOME
+	},
+	{
+		id: 'history-2',
+		title: '睡眠质量偏低',
+		preview: '近三日睡眠评分下降，建议晚间减少蓝光刺激并调整入睡时间。',
+		time: '05-11 22:15',
+		route: ROUTE_HOME
+	}
+]
+
+export const PROFILE_TAG: string = '本人'
+export const PROFILE_NAME: string = '王*'
+export const PROFILE_STATS: any[] = [
+	{ id: 'gender', label: '性别', value: '男' },
+	{ id: 'age', label: '年龄', value: '38 岁' },
+	{ id: 'bmi', label: 'BMI', value: '22.9' },
+	{ id: 'status', label: '状态', value: '正常' }
+]
+export const PROFILE_ACTIONS: any[] = [
+	{
+		id: 'profile-settings',
+		title: '系统设置',
+		description: '管理服务入口',
+		route: ROUTE_SETTINGS
+	},
+	{
+		id: 'profile-account',
+		title: '账号设置',
+		description: '维护登录与绑定',
+		route: ROUTE_ACCOUNT
+	},
+	{
+		id: 'profile-feedback',
+		title: '举报反馈',
+		description: '提交问题与建议',
+		route: ROUTE_FEEDBACK
+	},
+	{
+		id: 'profile-about',
+		title: '关于我们',
+		description: '查看平台说明',
+		route: ROUTE_ABOUT
+	}
+]
+export const PROFILE_HEALTH_NOTE: string = '当前身体指标整体平稳，可继续保持规律作息与轻运动习惯。'
+
+export const SETTINGS_EYEBROW: string = '账户与服务'
+export const SETTINGS_TITLE: string = '管理你的健康数据体验'
+export const SETTINGS_DESCRIPTION: string = '统一管理账号安全、反馈渠道与平台说明。'
+export const SETTINGS_ITEMS: any[] = [
+	{
+		id: 'settings-account',
+		title: '账号设置',
+		description: '查看绑定状态与密码操作',
+		route: ROUTE_ACCOUNT
+	},
+	{
+		id: 'settings-feedback',
+		title: '举报与反馈',
+		description: '记录问题、建议或体验反馈',
+		route: ROUTE_FEEDBACK
+	},
+	{
+		id: 'settings-about',
+		title: '关于我们',
+		description: '了解平台背景和版本信息',
+		route: ROUTE_ABOUT
+	}
+]
+export const SETTINGS_LOGOUT_TEXT: string = '退出登录'
+
+export const ACCOUNT_EYEBROW: string = '账号安全'
+export const ACCOUNT_TITLE: string = '维护你的登录与绑定信息'
+export const ACCOUNT_DESCRIPTION: string = '支持查看绑定状态、修改密码以及管理风险操作。'
+export const ACCOUNT_ITEMS: any[] = [
+	{ id: 'account-phone', title: '手机号码', value: '138****8888', description: '用于登录与安全验证' },
+	{ id: 'account-wechat', title: '微信绑定', value: '已绑定', description: '保持常用设备快捷登录' },
+	{ id: 'account-password', title: '修改密码', value: '>', description: '建议定期更新密码' }
+]
+export const ACCOUNT_DANGER_TITLE: string = '注销账号'
+export const ACCOUNT_DANGER_DESCRIPTION: string = '注销后账号数据将无法恢复'
+
+export const FEEDBACK_EYEBROW: string = '产品反馈'
+export const FEEDBACK_TITLE: string = '告诉我们你的使用感受'
+export const FEEDBACK_DESCRIPTION: string = '无论是问题反馈还是体验建议，我们都会认真记录并持续优化。'
+export const FEEDBACK_PLACEHOLDER: string = '请输入您的宝贵意见或反馈问题，我们将尽快处理（最多 200 字）'
+export const FEEDBACK_COUNTER: string = '0/200'
+export const FEEDBACK_SUBMIT_TEXT: string = '提交反馈'
+
+/**
+ * 获取对话首页静态展示数据。
+ *
+ * @returns {any} 返回首页所需的品牌信息、问候卡片、消息内容和快捷入口配置。
+ */
+export function getChatHomePageData(): any {
+	return {
+		brandName: HOME_BRAND_NAME,
+		brandSubtitle: HOME_BRAND_SUBTITLE,
+		tabs: HOME_TABS,
+		greetingCard: {
+			title: HOME_GREETING_TITLE,
+			subtitle: HOME_GREETING_SUBTITLE,
+			tipsTitle: HOME_GREETING_TIPS_TITLE,
+			tipsContent: HOME_GREETING_TIPS_CONTENT,
+			advice: HOME_GREETING_ADVICE
+		},
+		messages: HOME_MESSAGES,
+		quickLinks: HOME_QUICK_LINKS,
+		services: HOME_SERVICES,
+		inputPlaceholder: HOME_INPUT_PLACEHOLDER,
+		footerNote: HOME_FOOTER_NOTE
+	}
+}
+
+/**
+ * 获取历史对话页静态展示数据。
+ *
+ * @returns {any} 返回历史页所需的用户信息、新建对话入口和历史记录列表。
+ */
+export function getHistoryPageData(): any {
+	return {
+		userName: HISTORY_USER_NAME,
+		userSubtitle: HISTORY_USER_SUBTITLE,
+		newChatTitle: HISTORY_NEW_CHAT_TITLE,
+		newChatRoute: HISTORY_NEW_CHAT_ROUTE,
+		historyTitle: HISTORY_TITLE,
+		items: HISTORY_ITEMS
+	}
+}
+
+/**
+ * 获取健康档案页静态展示数据。
+ *
+ * @returns {any} 返回健康档案页所需的身份摘要、指标数据、快捷入口和提示文案。
+ */
+export function getProfilePageData(): any {
+	return {
+		tag: PROFILE_TAG,
+		name: PROFILE_NAME,
+		stats: PROFILE_STATS,
+		actions: PROFILE_ACTIONS,
+		healthNote: PROFILE_HEALTH_NOTE
+	}
+}
+
+/**
+ * 获取系统设置页静态展示数据。
+ *
+ * @returns {any} 返回系统设置页所需的头部说明、菜单列表和退出按钮文案。
+ */
+export function getSettingsPageData(): any {
+	return {
+		eyebrow: SETTINGS_EYEBROW,
+		title: SETTINGS_TITLE,
+		description: SETTINGS_DESCRIPTION,
+		items: SETTINGS_ITEMS,
+		logoutText: SETTINGS_LOGOUT_TEXT
+	}
+}
+
+/**
+ * 获取账号设置页静态展示数据。
+ *
+ * @returns {any} 返回账号设置页所需的安全摘要、绑定信息和风险操作提示。
+ */
+export function getAccountPageData(): any {
+	return {
+		eyebrow: ACCOUNT_EYEBROW,
+		title: ACCOUNT_TITLE,
+		description: ACCOUNT_DESCRIPTION,
+		items: ACCOUNT_ITEMS,
+		dangerTitle: ACCOUNT_DANGER_TITLE,
+		dangerDescription: ACCOUNT_DANGER_DESCRIPTION
+	}
+}
+
+/**
+ * 获取举报反馈页静态展示数据。
+ *
+ * @returns {any} 返回举报反馈页所需的头部说明、占位输入文案和提交按钮文案。
+ */
+export function getFeedbackPageData(): any {
+	return {
+		eyebrow: FEEDBACK_EYEBROW,
+		title: FEEDBACK_TITLE,
+		description: FEEDBACK_DESCRIPTION,
+		placeholder: FEEDBACK_PLACEHOLDER,
+		counter: FEEDBACK_COUNTER,
+		submitText: FEEDBACK_SUBMIT_TEXT
+	}
+}
+
+export const ABOUT_BRAND_TITLE: string = '智医康科技'
+export const ABOUT_PRODUCT_NAME: string = '关于智医康'
+export const ABOUT_SLOGAN: string = '连接生命，赋能健康'
+export const ABOUT_VERSION: string = 'Version 1.0.0'
+export const ABOUT_PARAGRAPHS: string[] = [
+	'上海智医康科技有限公司是一家专注于癌病数字化疗法的前沿医疗科技企业。我们深度融合 AI 大模型能力与医疗数据规则，帮助患者获得更连续、更可解释的健康陪伴。',
+	'平台以静态演示方式还原健康咨询、健康档案与账号服务等核心信息架构，为后续真实接口接入和多端联调提供统一的页面基础。'
+]
+export const ABOUT_FOOTER_LINES: string[] = [
+	'© 2026 上海智医康科技有限公司',
+	'沪 ICP 备 2024092528 号-4',
+	'地址：上海市徐汇区龙兰路 200 号 2 号楼 302',
+	'邮箱：kefu@izencare.com | 电话：4006898982'
+]
+
+/**
+ * 获取关于我们页静态展示数据。
+ *
+ * @returns {any} 返回关于我们页所需的品牌信息、介绍文案和底部信息。
+ */
+export function getAboutPageData(): any {
+	return {
+		brandTitle: ABOUT_BRAND_TITLE,
+		productName: ABOUT_PRODUCT_NAME,
+		slogan: ABOUT_SLOGAN,
+		version: ABOUT_VERSION,
+		paragraphs: ABOUT_PARAGRAPHS,
+		footerLines: ABOUT_FOOTER_LINES
+	}
+}

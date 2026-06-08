@@ -1,0 +1,63 @@
+<template>
+	<view class="app-screen">
+		<UiNavBar title="系统设置" subtitle="统一管理账号、反馈与平台说明入口。" />
+
+		<view class="app-card">
+			<text class="app-eyebrow">{{ eyebrow }}</text>
+			<text class="app-title">{{ title }}</text>
+			<text class="app-subtitle">{{ description }}</text>
+		</view>
+
+		<UiSectionCard title="服务入口" description="静态演示场景下仅做展示与页面跳转。">
+			<view class="app-stack">
+				<navigator class="app-list-item" :url="routeAccount">
+					<view class="app-list-main">
+						<text class="app-list-title">账号设置</text>
+						<text class="app-list-desc">查看绑定状态与密码操作</text>
+					</view>
+					<text class="app-arrow">></text>
+				</navigator>
+				<navigator class="app-list-item" :url="routeFeedback">
+					<view class="app-list-main">
+						<text class="app-list-title">举报与反馈</text>
+						<text class="app-list-desc">记录问题、建议或体验反馈</text>
+					</view>
+					<text class="app-arrow">></text>
+				</navigator>
+				<navigator class="app-list-item" :url="routeAbout">
+					<view class="app-list-main">
+						<text class="app-list-title">关于我们</text>
+						<text class="app-list-desc">了解平台背景和版本信息</text>
+					</view>
+					<text class="app-arrow">></text>
+				</navigator>
+			</view>
+		</UiSectionCard>
+
+		<view class="app-card">
+			<text class="app-outline-button">{{ logoutText }}</text>
+		</view>
+	</view>
+</template>
+
+<script setup lang="uts">
+import UiNavBar from '../../components/ui/UiNavBar.uvue'
+import UiSectionCard from '../../components/ui/UiSectionCard.uvue'
+import {
+	ROUTE_ABOUT,
+	ROUTE_ACCOUNT,
+	ROUTE_FEEDBACK,
+	SETTINGS_DESCRIPTION,
+	SETTINGS_EYEBROW,
+	SETTINGS_LOGOUT_TEXT,
+	SETTINGS_TITLE
+} from '../../constants/demo-data.uts'
+
+const eyebrow = SETTINGS_EYEBROW
+const title = SETTINGS_TITLE
+const description = SETTINGS_DESCRIPTION
+const logoutText = SETTINGS_LOGOUT_TEXT
+const routeAccount = ROUTE_ACCOUNT
+const routeFeedback = ROUTE_FEEDBACK
+const routeAbout = ROUTE_ABOUT
+</script>

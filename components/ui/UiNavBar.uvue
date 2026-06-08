@@ -1,0 +1,69 @@
+<template>
+	<view class="ui-nav-bar">
+		<uni-nav-bar
+			class="ui-nav-bar__surface"
+			hideDefaultBack
+			navigationBarTextStyle="black"
+			mid-class="ui-nav-bar__mid"
+			right-class="ui-nav-bar__right"
+		>
+			<template #mid>
+				<text class="ui-nav-bar__title">{{ props.title }}</text>
+				<text v-if="props.subtitle.length > 0" class="ui-nav-bar__subtitle">{{ props.subtitle }}</text>
+			</template>
+			<template #right>
+				<slot />
+			</template>
+		</uni-nav-bar>
+	</view>
+</template>
+
+<script setup lang="uts">
+const props = defineProps({
+	title: {
+		type: String,
+		default: '',
+	},
+	subtitle: {
+		type: String,
+		default: '',
+	},
+})
+</script>
+
+<style>
+	.ui-nav-bar {
+		margin-top: 4px;
+		margin-bottom: 12px;
+	}
+
+	.ui-nav-bar__surface {
+		border-radius: 16px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: #edf1f4;
+		background-color: #ffffff;
+	}
+
+	.ui-nav-bar__mid {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	.ui-nav-bar__right {
+		width: 44px;
+	}
+
+	.ui-nav-bar__title {
+		font-size: 20px;
+		font-weight: 600;
+		color: #1f2937;
+	}
+
+	.ui-nav-bar__subtitle {
+		margin-top: 6px;
+		font-size: 13px;
+		color: #667085;
+	}
+</style>

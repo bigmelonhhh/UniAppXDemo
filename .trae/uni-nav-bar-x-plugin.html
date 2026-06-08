@@ -1,0 +1,3406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>    
+
+            uni-nav-bar - DCloud 插件市场
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="description" content="uni-nav-bar"/>
+    <meta name="keywords"
+          content="插件市场,uniapp,uni-app,小程序,混合开发,html,javascript,uni-nav-bar,uni-app-x,uni-app,x,组件"/>
+    <link rel="shortcut icon" type="image/x-icon" href="//img-cdn-tx.dcloud.net.cn/dev/img/ext/favicon.png">
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/iview.css"/>
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/message.css"/>
+            <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/build/css/ext/main-51d0859ccd.css">
+        <style>
+        #notice {
+            background-position-y: 3px;
+            /*background: url(//ask.dcloud.net.cn/newpage/images/radio
+        @ 2x.png) no-repeat;*/
+            background-size: 17px 17px;
+            height: 18px;
+            overflow: hidden;
+            text-align: right;
+            float: right;
+            margin-top: 16px;
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+
+        
+
+        #notice a:hover {
+            opacity: 0.7;
+        }
+
+        #notice a {
+            display: block;
+            border-bottom: none;
+            line-height: 18px;
+            color: #FCFCFC;
+        }
+
+        #notice > a {
+            line-height: 18px;
+            height: 18px;
+            text-align: left;
+        }
+
+        #notice > a {
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: #b4b4b4;
+        }
+
+        .footer .dcloud_news a {
+            color: #f9f9f9;
+            cursor: default;
+        }
+        .message-dropdown .notification{
+            position: absolute;
+            content: ' ';
+            width:6px;
+            height:6px;
+            background-color: #ef3737;
+            border-radius: 3px;
+            top:6px;
+            right: 6px;
+        }
+
+        .body-width {
+            min-width: 1200px;
+        }
+
+        .navbar-primary {
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        @media  screen and (max-width: 768px) {
+            .body-width {
+                min-width: 0px;
+            }
+
+            .navbar-primary .navbar-header {
+                min-height: 50px;
+            }
+
+            .navbar-primary .navbar-toggle {
+                /* margin-top: 18px; */
+                margin-right: 15px;
+                /* border-color: #22ac38; */
+            }
+
+            /* .navbar-primary .navbar-toggle .icon-bar { */
+                /* background-color: #22ac38; */
+            /* } */
+
+            .navbar-primary .navbar-brand {
+                height: 50px;
+                /* padding-top: 10px; */
+                padding-bottom: 10px;
+            }
+
+            .navbar-primary .navbar-brand img {
+                max-height: 30px;
+                width: auto;
+            }
+
+            .navbar-primary .navbar-collapse {
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: none;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+                padding-bottom: 12px;
+                background: #222;
+            }
+
+            .navbar-primary .navbar-nav {
+                margin: 0 -15px;
+            }
+
+            .navbar-primary .mobile-nav-title {
+                padding: 10px 15px 6px;
+                margin: 0;
+                font-size: 12px;
+                line-height: 1.4;
+                color: #8f8f8f;
+                letter-spacing: 1px;
+            }
+
+            .navbar-primary .primary-nav-main,
+            .navbar-primary .primary-nav-account {
+                padding-top: 8px;
+            }
+
+            /* .navbar-primary .primary-nav-account {
+                margin-top: 8px;
+                border-top: 8px solid rgba(255, 255, 255, 0.04);
+            } */
+
+            .navbar-primary .navbar-nav > li > a {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .navbar-primary .primary-nav-main > li > a {
+                border-left: 3px solid transparent;
+            }
+
+            .navbar-primary .primary-nav-main > li.active > a,
+            .navbar-primary .primary-nav-main > li.active > a:hover,
+            .navbar-primary .primary-nav-main > li.active > a:focus {
+                color: #fff;
+                background-color: rgba(34, 172, 56, 0.16);
+                border-left-color: #22ac38;
+            }
+
+            .navbar-primary .primary-nav-account .message-dropdown .message-drop-body {
+                position: static;
+                width: auto;
+                min-width: 0;
+                margin: 8px 15px 0;
+            }
+
+            #notice {
+                display: none !important;
+            }
+        }
+
+        @media  screen and (min-width: 769px) {
+            .navbar-primary .mobile-nav-title {
+                display: none;
+            }
+        }
+    </style>
+                    
+
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/daterangepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/select2v4.0.3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/bootstrap-dialog.min.css"/>
+    <style type="text/css">
+        .highlight {
+            color: #fb6f18;
+        }
+
+        /*.tooltip-inner p:not(:first-child){white-space:nowrap;}*/
+        .tooltip-inner p {
+            text-align: left;
+        }
+
+        .tooltip-inner {
+            background-color: rgba(000, 000, 000, 0.9);
+            max-width: 750px;
+            padding: 15px;
+        }
+
+        .quest {
+            cursor: pointer;
+        }
+
+        .opensright.show-calendar {
+            padding: 15px;
+        }
+
+        .statistics_summary {
+            font-size: 28px;
+            color: #4cd964
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        .nav-tag {
+            margin-bottom: 30px;
+        }
+
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+    </style>
+
+
+    <style>
+        .btn {
+            border-radius: 20px;
+        }
+
+        button, .btn, .btn:hover, .btn:focus, .btn:active,.btn-default:active:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:link,
+        .btn-primary.disabled, .btn-primary.disabled:hover {
+            background-color: #22ac38;
+            border: none;
+        }
+
+        .btn-default, .btn-default:hover, .btn-default:active, .btn-default:focus,.btn-default:visited, .btn-default:link,.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
+            border-color: #22ac38;
+            color: #22ac38;
+            background-color: #FFFFFF;
+        }
+
+        .bootstrap-dialog.type-primary .modal-header {
+            background-color: #f2f2f2;
+        }
+
+        .bootstrap-dialog .bootstrap-dialog-title {
+            color: #000;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .navbar-secondary {
+            margin-top: 0 !important;
+        }
+
+        .navbar-secondary .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .navbar-secondary .navbar-toggle {
+            margin-top: 18px;
+            margin-right: 15px;
+            border-color: #22ac38;
+        }
+
+        .navbar-secondary .navbar-toggle .icon-bar {
+            background-color: #22ac38;
+        }
+
+        .navbar-secondary .navbar-right .no_result {
+            padding-top: 17px;
+            padding-bottom: 15px;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .navbar-secondary .navbar-right .publish {
+            color: #22ac38;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .navbar-secondary .navbar-right .publish:hover {
+            color: #22ac38;
+        }
+
+        .navbar-secondary .navbar-right .publish img {
+            width: 14px;
+            margin-top: -2px;
+        }
+
+        .navbar-secondary .navbar-right .publish span {
+            margin-right: 4px;
+        }
+
+        .navbar-secondary .navbar-right .btn-require,
+        .navbar-secondary .navbar-right .btn-require:hover,
+        .navbar-secondary .navbar-right .btn-require:active,
+        .navbar-secondary .navbar-right .btn-require:visited,
+        .navbar-secondary .navbar-right .btn-require:link {
+            padding: 1px 8px;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-top: 14px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            border-color: #22ac38;
+            color: #22ac38;
+        }
+
+        /*.new-category {*/
+        /*    margin: -5px 0px 0px 5px;*/
+        /*    height: 30px;*/
+        /*    position: absolute;*/
+        /*}*/
+
+        .red-point::before{
+            content: " ";
+            border: 3px solid red;/*设置红色*/
+            border-radius:3px;/*设置圆角*/
+            position: absolute;
+            z-index: 1000;
+            right: 0;
+            margin-right: -2px;
+        }
+
+        .new::after {
+            content: '新!';
+            position: absolute;
+            /*right: -1px;*/
+            /*top: 10px;*/
+            font-size: 12px;
+            color: red;
+            margin: -4px 0px 0px 2px;
+        }
+
+        .new-category::after {
+            content: '新!';
+            position: absolute;
+            font-size: 12px;
+            color: red;
+            margin-left: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-secondary .navbar-header,
+            .navbar-secondary .navbar-toggle {
+                display: none;
+            }
+
+            .navbar-secondary .navbar-collapse,
+            .navbar-secondary .collapse {
+                display: block !important;
+                visibility: visible;
+            }
+
+            .navbar-secondary .navbar-nav,
+            .navbar-secondary .navbar-right {
+                float: none !important;
+                margin: 0;
+                font-size: 0;
+            }
+
+            .navbar-secondary .navbar-nav > li,
+            .navbar-secondary .navbar-right > li {
+                float: none;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .navbar-secondary .navbar-right .btn-require:link {
+                display: inline-block;
+                margin: 7px 8px 7px 0;
+                padding: 4px 10px;
+                line-height: 18px;
+                vertical-align: middle;
+            }
+
+            .navbar-secondary .navbar-nav > li > a,
+            .navbar-secondary .navbar-right > li > a,
+            .navbar-secondary .navbar-right > li > p,
+            .navbar-secondary .navbar-right .btn-require,
+            .navbar-secondary .navbar-right .btn-require:hover,
+            .navbar-secondary .navbar-right .btn-require:active,
+            .navbar-secondary .navbar-right .btn-require:visited,
+            .navbar-secondary .navbar-right .btn-require:link,
+            .navbar-secondary .navbar-right .publish {
+                display: inline-block;
+                font-size: 13px;
+            }
+
+            .navbar-secondary .secondary-nav-actions > li {
+                vertical-align: middle;
+            }
+
+            .navbar-secondary .secondary-nav-actions > li > a,
+            .navbar-secondary .secondary-nav-actions > li > p,
+            .navbar-secondary .secondary-nav-actions .btn-require,
+            .navbar-secondary .secondary-nav-actions .btn-require:hover,
+            .navbar-secondary .secondary-nav-actions .btn-require:active,
+            .navbar-secondary .secondary-nav-actions .btn-require:visited,
+            .navbar-secondary .secondary-nav-actions .btn-require:link,
+            .navbar-secondary .secondary-nav-actions .publish {
+                font-size: 12px;
+                line-height: 16px;
+                vertical-align: middle;
+            }
+
+            .navbar-secondary .secondary-nav-actions > li > p {
+                margin-bottom: 0;
+            }
+
+            .navbar-secondary .secondary-nav-actions .publish,
+            .navbar-secondary .secondary-nav-actions > li > a {
+                line-height: 18px;
+            }
+
+            .navbar-secondary .secondary-nav-actions .no_result {
+                line-height: 18px;
+            }
+
+            .navbar-secondary .secondary-nav-actions .btn-require,
+            .navbar-secondary .secondary-nav-actions .btn-require:hover,
+            .navbar-secondary .secondary-nav-actions .btn-require:active,
+            .navbar-secondary .secondary-nav-actions .btn-require:visited,
+            .navbar-secondary .secondary-nav-actions .btn-require:link {
+                vertical-align: middle;
+            }
+
+            .navbar-secondary .secondary-nav-actions .btn-require,
+            .navbar-secondary .secondary-nav-actions .btn-require:hover,
+            .navbar-secondary .secondary-nav-actions .btn-require:active,
+            .navbar-secondary .secondary-nav-actions .btn-require:visited,
+            .navbar-secondary .secondary-nav-actions .btn-require:link {
+                margin: 5px 6px 5px 0;
+                padding: 3px 8px;
+                line-height: 16px;
+            }
+
+            .navbar-secondary .secondary-nav-actions .publish,
+            .navbar-secondary .secondary-nav-actions > li > a,
+            .navbar-secondary .secondary-nav-actions > li > p {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .navbar-secondary .secondary-nav-actions > li > a,
+            .navbar-secondary .secondary-nav-actions > li > p,
+            .navbar-secondary .secondary-nav-actions .btn-require,
+            .navbar-secondary .secondary-nav-actions .btn-require:hover,
+            .navbar-secondary .secondary-nav-actions .btn-require:active,
+            .navbar-secondary .secondary-nav-actions .btn-require:visited,
+            .navbar-secondary .secondary-nav-actions .btn-require:link,
+            .navbar-secondary .secondary-nav-actions .publish {
+                font-size: 11px;
+            }
+
+            .navbar-secondary .secondary-nav-actions .publish,
+            .navbar-secondary .secondary-nav-actions > li > a,
+            .navbar-secondary .secondary-nav-actions > li > p {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .navbar-secondary .navbar-nav > li > a,
+            .navbar-secondary .navbar-right > li > a,
+            .navbar-secondary .navbar-right > li > p,
+            .navbar-secondary .navbar-right .btn-require,
+            .navbar-secondary .navbar-right .btn-require:hover,
+            .navbar-secondary .navbar-right .btn-require:active,
+            .navbar-secondary .navbar-right .btn-require:visited,
+            .navbar-secondary .navbar-right .btn-require:link,
+            .navbar-secondary .navbar-right .publish {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-secondary .dropdown {
+                position: relative;
+            }
+
+            .navbar-secondary .dropdown.open > .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                display: block;
+                float: left;
+                margin-top: 2px;
+                background-color: #fff;
+                opacity: 1;
+                border-radius: 4px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+                pointer-events: auto;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/jquery-ui.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/star-rating.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/github-markdown.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/css/highlight.js/github-gist.min.css" type="text/css" media="all"/>
+
+            <link rel="stylesheet" href="//css-cdn-aliyun.dcloud.net.cn/dev/build/css/ext/plugin-0d1df62b9d.css">
+    
+    <style>
+        div .license {
+            width: 100%;
+            height: 300px;
+            overflow: scroll;
+        }
+
+        .plugin-match {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        .required {
+            color: #f37777;
+            display: inline-block;
+            margin-right: 4px;
+            font-size: larger;
+        }
+
+        .alert-info li {
+            line-height: 2;
+        }
+
+        .markdown-body table thead tr:first-child {
+            background-color: #f6f8fa;
+        }
+
+        .uni-modules-version {
+            display: inline-block;
+            margin: 0px 3px !important;
+        }
+
+        .contact-publisher {
+            vertical-align: top;
+            display: inline-block;
+            height: 44px;
+            margin-left: 10px;
+        }
+
+        .ocd-p label{
+            font-weight: normal
+        }
+
+        .contact-publisher a  {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .contact-publisher a:hover {
+            text-decoration: none;
+        }
+
+        .ocd-p radio {
+            border: none;
+            outline:none;
+        }
+
+        .ocd-p radio:checked {
+            border: none;
+            outline:none;
+        }
+        .ocd-notice span{
+            font-size: 12px;
+        }
+        .ocd-p>strong {
+            color: #000000;
+        }
+        .ocd-radio {
+            width: 20px;
+            height: 20px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            outline: none;
+        }
+        .ocd-radio:before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            border: 1px solid #22ac38;
+            display: inline-block;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .ocd-radio:checked:before {
+            width: 18px;
+            height: 18px;
+            left: 0;
+            content: '';
+            border: 1px solid #22ac38;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+            background-repeat: no-repeat;
+            background-position: 1px -1px;
+            border-radius: 50%;
+            z-index: 2;
+            cursor: pointer;
+            background-color: #22ac38;
+        }
+        /*.ocd-radio:checked:after {*/
+        /*    content: "";*/
+        /*    width: 10px;*/
+        /*    height: 10px;*/
+        /*    text-align: center;*/
+        /*    background: #22ac38;*/
+        /*    border-radius: 50%;*/
+        /*    display: block;*/
+        /*    position: absolute;*/
+        /*    top: 4px;*/
+        /*    left: 3px;*/
+        /*}*/
+        .ocd-radio:checked + label {
+            color: #22ac38;
+        }
+
+        .ocd-radio:focus {
+            outline:none;
+        }
+
+        .ocd-desc {
+            color: #666;
+            font-size: 12px;
+        }
+
+        input[type=radio]:focus {
+            outline:none;
+        }
+
+        .ocd-notice .warning {
+            color: red;
+        }
+
+        .ocd-p-type {
+            margin: 0 auto;
+        }
+        .btn-ad-link{
+            border: none;
+            float: left;
+            font-size: 12px;
+        }
+        .ocd-no-space-ul {
+            margin-top: 0;
+        }
+        .ocd-no-space-ul li{
+            padding-left: 0;
+            color: red;
+        }
+        .ocd-no-space-ul li::before {
+            border: none;
+        }
+        .ui-progressbar .ui-progressbar-value {
+            margin: 0;
+        }
+        .ui-widget-header {
+            border: 1px solid #22ac38;
+            background: #22ac38;
+        }
+        .ui-widget-content {
+            border-radius: 10px;
+            height: 20px;
+            background: #fff;
+        }
+
+        .btn-download-history {
+            max-width: 300px;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #22ac38;
+            background-color: #22ac38;
+            color: #fff;
+        }
+
+        .btn-rating, .btn-rating:hover, .btn-contact-im, .btn-contact-im:hover {
+            border: 1px solid #22ac38;
+            background-color: #22ac38;
+            color: #fff;
+        }
+
+        .btn-download-history-have-example, .btn-complaint {
+            color: #2E2925;
+            border: 1px solid #CECECE;
+            background: #FFFFFF;
+        }
+
+        .btn-download-history-example, {
+            border: 1px solid #09a0f7;
+            background-color: #09a0f7;
+            color: #fff;
+        }
+
+        .btn-download-history img {
+            height: 16px;
+        }
+
+        .btn-download-history:hover {
+            border: 1px solid #22ac38;
+            background-color: #22ac38;
+            color: #fff;
+        }
+
+        .btn-download-history-example:hover {
+            border: 1px solid #09a0f7;
+            background-color: #09a0f7;
+            color: #fff;
+        }
+
+        .btn-download-history-have-example:hover, .btn-complaint:hover {
+            color: #2E2925;
+            border: 1px solid #CECECE;
+            background: #FFFFFF;
+        }
+
+        .history-button-glyphicon {
+            padding: 0;
+        }
+
+        .history-version-download {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .contact_im .btn {
+            min-width: 260px;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .page-header-btn {
+            margin-left: 5px;
+        }
+
+        .markdown-body table > thead > tr > th {
+            font-size: 12px !important;
+        }
+
+        .mart-max-width {
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .no-border-bottom {
+            border-bottom: none !important;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t1rwodlgid");
+    </script>
+</head>
+<body class="body-width">
+
+<nav class="navbar navbar-inverse navbar-primary"
+     style="">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://dcloud.io" target="_blank">
+                <img alt="Brand" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/logo-d.png">
+            </a>
+            <a class="navbar-brand" href="/" style="margin-left: -23px; padding-left: 0;">
+                <img alt="Brand" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/logo-ext-new.png">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav navbar-right primary-nav-account">
+                                    <li>
+                        <a id="login"
+                           href="http://ext.dcloud.net.cn/auth/login?return_url=https://ext.dcloud.net.cn/plugin?name=uni-nav-bar-x ">登录</a>
+                    </li>
+                    <li>
+                        <a href="https://account.dcloud.net.cn/uni_modules/uni-id-pages/pages/register/register-by-email?appid=__UNI__marketplace_server&amp;platform=web&amp;type=green&amp;loginUrl=http%3A%2F%2Fext.dcloud.net.cn%2Fauth%2Flogin%3Freturn_url%3Dhttps%253A%252F%252Fext.dcloud.net.cn%252Fplugin%253Fname%253Duni-nav-bar-x">注册</a>
+                    </li>
+                            </ul>
+            <ul class="nav navbar-nav">
+                                            </ul>
+                                    <div id="notice">
+                            <a class="notice-open">严禁发布包含恶意代码或侵犯第三方知识产权的插件</a>
+                        </div>
+        </div>
+    </div>
+</nav>
+
+    <nav class="navbar navbar-default navbar-secondary ">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav secondary-nav-categories">
+                    <li class=""><a href="/">全部</a></li>
+                                                                <li class=" dropdown">
+
+                                                            <a href="/?cat1=2"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">前端组件
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=2&amp;cat2=21"
+                                               >
+                                                通用组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?cat1=2&amp;uni-appx=1"
+                                                 class="new-category" >
+                                                uvue 组件
+
+                                                                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?cat1=2&amp;uni-app-platforms=3"
+                                               >
+                                                nvue 组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=2&amp;cat2=23"
+                                               >
+                                                小程序组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?&amp;q=DataCom"
+                                               >
+                                                DataCom组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=4"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">JS SDK
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                                                                                                <li>
+                                            <a href="/search?cat1=4&amp;uni-appx=1"
+                                               >
+                                                UTS SDK
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?cat1=4&amp;uni-app-platforms=16"
+                                               >
+                                                微信小程序 SDK
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?q=Native.js"
+                                               >
+                                                Native.js
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=8"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">UTS插件
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=8&amp;cat2=81"
+                                               >
+                                                API插件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=8&amp;cat2=82"
+                                               >
+                                                uni-app兼容模式组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=8&amp;cat2=83"
+                                               >
+                                                标准模式组件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=3"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">uni-app前端模板
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/search?cat1=3&amp;uni-app-platforms=2"
+                                               >
+                                                前端页面模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?cat1=3&amp;uni-appx=1"
+                                               >
+                                                uvue 页面模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/search?cat1=3&amp;uni-app-platforms=3"
+                                               >
+                                                nvue 页面模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=3&amp;cat2=33"
+                                               >
+                                                uni-app前端项目模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=5"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">App原生语言插件
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=5&amp;cat2=51"
+                                               >
+                                                App原生语言插件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=6"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">web 项目
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=6&amp;cat2=61"
+                                               >
+                                                web 项目模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=7"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">uniCloud
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=7&amp;cat2=71"
+                                               >
+                                                云函数模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=7&amp;cat2=73"
+                                               >
+                                                云端一体页面模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=7&amp;cat2=72"
+                                               >
+                                                云端一体项目模板
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=7&amp;cat2=74"
+                                               >
+                                                Admin插件
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=7&amp;cat2=76"
+                                               >
+                                                DB Schema及验证函数
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                            <li class=" dropdown">
+
+                                                            <a href="/?cat1=1"
+                                   class="dropdown-toggle" data-hover="dropdown"
+                                   aria-haspopup="true" aria-expanded="true">HBuilderX
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                                                                                                    <li>
+                                            <a href="/?cat1=1&amp;cat2=11"
+                                               >
+                                                HBuilderX
+
+                                                                                            </a>
+                                        </li>
+                                                                                                                                                            <li>
+                                            <a href="/?cat1=1&amp;cat2=12"
+                                               >
+                                                语言包
+
+                                                                                            </a>
+                                        </li>
+                                                                                                            </ul>
+                                                    </li>
+                                    </ul>
+                <ul class="nav navbar-nav navbar-right secondary-nav-actions">
+                                        <li>
+                        <p class="no_result">
+                            没找到想要的插件？
+                        </p>
+                    </li>
+                    <li>
+                        <a class="btn btn-require"
+                           href="https://ask.dcloud.net.cn/publish/requirements/" target="_blank">
+                            提交需求
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn btn-require" style="margin-right: 20px;"
+                           href="https://ask.dcloud.net.cn/topic/%E6%8F%92%E4%BB%B6%E9%9C%80%E6%B1%82" target="_blank">
+                            已发布需求
+                        </a>
+                    </li>
+                    <li>
+                        <a class="publish" href="https://uniapp.dcloud.io/plugin/publish.html" target="_blank">
+                            <span class="glyphicon glyphicon-question-sign"></span>插件开发指南
+                        </a>
+                    </li>
+                    <li>
+                        <a class="publish" href="/publish">
+                            <span class="glyphicon glyphicon-plus-sign"></span>发布插件
+                        </a>
+                    </li>
+                    <li>
+                        <a class="publish" href="/manage">
+                            <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/ico.png">
+                            我的插件
+                        </a>
+                    </li>
+                                    </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+    <div class="container-fluid">
+        <input type="hidden" id="menu" value="">
+                    <div class="row banner content">
+            <div class="col-lg-12">
+                                    <div class="navbar-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li><a href="/"><img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/home.png"></a></li>
+                                                                                    <li>
+                                <a href="/?cat1=2">前端组件</a>
+                            </li>
+                                                                                    <li>
+                                <a href="/?cat1=2&cat2=21">通用组件</a>
+                            </li>
+                                                    </ol>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 plugin-info">
+                        <div class="row plugin-name">
+                            <div class="col-lg-12">
+                                <h3>
+                                                                        uni-nav-bar
+                                    <span>
+                                                                                    <a class="badge bg-green"
+                                               href="/search?q=uni-nav-bar">uni-nav-bar</a>
+                                                                                    <a class="badge bg-green"
+                                               href="/search?q=uni-app-x">uni-app-x</a>
+                                                                                    <a class="badge bg-green"
+                                               href="/search?q=uni-app">uni-app</a>
+                                                                                    <a class="badge bg-green"
+                                               href="/search?q=x">x</a>
+                                                                                    <a class="badge bg-green"
+                                               href="/search?q=组件">组件</a>
+                                                                                                                        </span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row plugin-description">
+                            <div class="col-lg-12">
+                                <p>uni-nav-bar</p>
+                            </div>
+                        </div>
+
+                        <div class="row plugin-publisher">
+                            <div class="col-lg-12">
+                                <div class="name">
+                                    <span>
+                                    作者：
+                                    <a href="/publisher?id=586192" target="_blank">
+                                        DCloud前端团队
+                                    </a>
+                                    </span>
+                                                                            <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png" title="已实名认证">
+                                                                    </div>
+                                <img class="avatar"
+                                     src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/67/43/81_avatar_max.jpg?=1613651270">
+
+                                                                                                                                                <div class="contact-publisher">
+                                            <a class="btn btn-primary btn-sm" href="/manage">进入交流群</a>
+                                        </div>
+                                                                                                </div>
+                        </div>
+
+                        <div class="row plugin-download">
+                            <div class="col-lg-12">
+                                <span>下载人数: 71</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span>下载次数: 104</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="plugin-detail-collection" onclick="collection(this)">
+                                                                            <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/collection-small-empty.png" title="收藏">
+                                                                        收藏人数:
+                                    <span class="collection-text">
+                                        0
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+
+                                                                                                    <div class="row plugin-rating">
+                            <div class="col-lg-12">
+                                <div class="rating"
+                                     title="评分: 0 （0人评分）"
+                                     onclick="rating()">
+                                    <div class="star-rating">
+                                        <div class="star-rating-top"
+                                             style="width:0%">
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                        </div>
+                                        <div class="star-rating-bottom">
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                            <span class="glyphicon"></span>
+                                        </div>
+                                    </div>
+                                    <span class="star-rating-text">（0）</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row plugin-id">
+                            <div class="col-lg-12">
+                                <span>插件ID：uni-nav-bar-x</span>
+                            </div>
+                        </div>
+
+                                                <div class="row plugin-size">
+                            <div class="col-lg-12">
+                                <span>插件包体积：3.2KB</span>
+                                                            </div>
+
+                            </div>
+                        
+                        <div class="row plugin-more-info">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                    更新日期：2026-05-20
+                                                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">版本：1.0.1</div>
+                        </div>
+
+
+                        
+                                                    <div class="row github">
+                                <div class="col-lg-12">
+                                    <a href="https://gitcode.com/dcloud/uni-ui-x" target="_blank">
+                                                                                    <img class="pr" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/gitee.png">
+                                                                                https://gitcode.com/dcloud/uni-ui-x
+                                    </a>
+                                </div>
+                            </div>
+                                                                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 plugin-side">
+                                                <div class="row sidebar-list-title">
+                            <ul class="nav-tab" id="uni_modules_item">
+                                <li class="active uni-modules-version" id="uni_modules_yes">
+                                    <a href="javascript:;" data-id="uni_modules"> 支持uni_modules </a>
+                                </li>
+                                                            </ul>
+                        </div>
+                        
+                        <div class="row  sidebar-list ">
+                            <div class="download">
+                                                                                                            <div class="support">
+                                                                                            <div class="separator">
+                                                    <span>插件</span>
+                                                </div>
+                                                                                                                                                                                            
+                                                    
+                                                                                                    
+                                                                                                    <a class="btn btn-hx-import hmt-btn-hx-import"
+                                                       onclick="download_plugin(1, 0)"
+                                                       href="javascript:void(0)"
+                                                       data-loading-text="<span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>处理中..."
+                                                    >
+                                                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/hx2@2x.png">
+                                                        下载插件并导入HBuilderX
+                                                    </a>
+                                                                                                            <p id="uni_modules_desc" style="margin-top: -16px;color: #666;">注意：导入uni_modules规范插件需要使用
+                                                            3.1.0 以上版本的 HBuilderX</p>
+                                                                                                                                                <!-- 付费插件导入 uniCloud分类 -->
+                                                                                                                                    </div>
+                                                                        <input type="hidden" name="version_example" value="0">
+                                    <input type="hidden" name="is_download_version" value="0">
+                                                                            <div class="separator have-plugin-example">
+                                            <span>示例</span>
+                                        </div>
+                                        <a class="btn btn-hx-import-example hmt-btn-hx-import-example have-plugin-example"
+                                                                                      onclick="download_plugin(1, 1)"
+                                                                                      href="javascript:void(0)"
+                                           data-loading-text="<span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>处理中..."
+                                        >
+                                            <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/hx2@2x.png">
+                                            使用 HBuilderX 导入示例项目
+                                        </a>
+                                                                                <a class="btn btn-download-example have-plugin-example"
+                                           onclick="download_plugin(0, 1)"
+                                           href="javascript:void(0)"
+                                           data-loading-text="<span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>下载中..."
+                                        >
+                                            <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/zip@2x.png">
+                                            下载示例项目ZIP
+                                        </a>
+                                                                                                                                        </div>
+                                                            <div class="support">
+                                    <a class="btn btn-support for-sale" data-toggle="modal"
+                                       data-target="#support_modal">
+                                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/support_big.png">
+                                        赞赏（0）
+                                    </a>
+                                </div>
+                            
+                            
+                            <p style="color: #666;">本站所有收费插件均支持免费试用，切勿私下交易或购买不可正常试用的插件，而造成不必要的纠纷。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row content" id="rating">
+            <div class="col-lg-12">
+
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-content">
+                    <div class="plugin-body-nav">
+                        <ul class="nav-tab" id="plugin-item" role="tablist">
+
+                            <li role="presentation" class="active" id="tab_plugin_detail">
+                                <a href="javascript:;"
+                                   id="plugin-body-detail"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   data-id="tab_plugin_detail"
+                                >概述
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="" id="tab_plugin_rating">
+                                <a href="javascript:;"
+                                   id="plugin-body-rating"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   data-id="tab_plugin_rating"
+                                >评论
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                                        <div class="plugin-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row description">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="overview" style="min-height: 100px;">
+                                        <article class="markdown-body">
+                                                                                            <h2>更新记录</h2>
+
+                                                                                                    
+                                                    <h2>
+                                                        1.0.1（2026-05-20）
+
+                                                                                                                    <a title="下载此版本" href="javascript:void(0)" class="history-version-download" onclick="download_history_version('1.0.1', '2026-05-20', '1')">
+                                                                下载此版本
+                                                            </a>
+                                                        
+                                                    </h2>
+                                                    <ul>
+<li>纠正类名拼写错误</li>
+</ul>
+                                                                                                    
+                                                    <h2>
+                                                        1.0.0（2026-05-07）
+
+                                                                                                                    <a title="下载此版本" href="javascript:void(0)" class="history-version-download" onclick="download_history_version('1.0.0', '2026-05-07', '1')">
+                                                                下载此版本
+                                                            </a>
+                                                        
+                                                    </h2>
+                                                    <ul>
+<li>支持 uni-nav-bar 组件</li>
+</ul>
+                                                                                                                                                <hr>
+                                            
+                                                                                                                                                        <h2>平台兼容性</h2>
+                                                                                                                                                                                                                                                                                                                                <h4>uni-app x(5.07)</h4>
+                                                                                                                                                                                                                                    <table>
+<thead>
+<tr>
+<th>Chrome</th>
+<th>Safari</th>
+<th>Android</th>
+<th>iOS</th>
+<th>鸿蒙</th>
+<th>微信小程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                            <h3><a href="https://doc.dcloud.net.cn/uni-app-x/component/uni-ui-x/uni-nav-bar.html">查看文档</a></h3>
+                                        </article>
+                                    </div>
+                                </div>
+
+
+                                                                                            </div>
+
+                        </div>
+                        <div class="row declaration" id="license">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div>
+                                    <h4>隐私、权限声明</h4>
+                                    <h5>1. 本插件需要申请的系统权限列表：</h5>
+                                    <p>无</p>
+                                    <h5>2. 本插件采集的数据、发送的服务器地址、以及数据用途说明：</h5>
+                                    <p>无</p>
+                                    <h5>3. 本插件是否包含广告，如包含需详细说明广告表达方式、展示频率：</h5>
+                                    <p>无</p>
+                                </div>
+                            </div>
+                        </div>
+                                                    <div class="row declaration">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div>
+                                        <h4>许可协议</h4>
+                                                                                    <div class="license markdown-body">
+                                                <h1>uni-nav-bar（以下简称软件）源码使用许可协议</h1>
+<p>2022年10月</p>
+<p>本许可协议，是数字天堂（北京）网络技术有限公司（以下简称DCloud）对其所拥有著作权的“软件”，提供的使用许可协议。</p>
+<p>您对“软件”的复制、使用、修改及分发受本许可协议的条款的约束，如您不接受本协议，则不能使用、复制、修改本软件。</p>
+<p><strong>授权许可范围</strong></p>
+<p>a) 授予您永久性的、全球性的、免费的、非独占的、不可撤销的本软件的源码使用许可，您可以使用这些源码制作自己的应用。</p>
+<p>b) 您只能在DCloud产品体系内使用本软件及其源码。您不能将源码修改后运行在DCloud产品体系之外的环境，比如客户端脱离uni-app。</p>
+<p>c) DCloud未向您授权商标使用许可。您在根据本软件源码制作自己的应用时，需以自己的名义发布软件，而不是以DCloud名义发布。</p>
+<p>d) 本协议不构成代理关系。</p>
+<p>DCloud的责任限制 “软件”在提供时不带任何明示或默示的担保。在任何情况下，DCloud不对任何人因使用“软件”而引发的任何直接或间接损失承担责任，不论因何种原因导致或者基于何种法律理论,即使其曾被建议有此种损失的可能性。</p>
+<p><strong>您的责任限制</strong></p>
+<p>a) 您需要在授权许可范围内使用软件。</p>
+<p>b) 您在分发自己的应用时，不得侵犯DCloud商标和名誉权利。</p>
+<p>c) 您不得进行破解、反编译、套壳等侵害DCloud知识产权的行为。您不得利用DCloud系统漏洞谋利或侵害DCloud利益，如您发现DCloud系统漏洞应第一时间通知DCloud。您不得进行攻击DCloud的服务器、网络等妨碍DCloud运营的行为。未经书面许可，您不得利用DCloud的产品进行与DCloud争夺开发者的行为。</p>
+<p>d) 如您违反本许可协议，需承担因此给DCloud造成的损失。</p>
+<p>本协议签订地点为中华人民共和国北京市海淀区。</p>
+<p>根据发展，DCloud可能会对本协议进行修改。修改时，DCloud会在产品或者网页中显著的位置发布相关信息以便及时通知到用户。如果您选择继续使用本框架，即表示您同意接受这些修改。</p>
+<p>条款结束</p>
+                                            </div>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                <div class="row rating no-border-bottom">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="page-header">
+                                    <span class="h4">评论列表</span>
+                                                                            <a class="btn btn-rating pull-right" onclick="rating()">撰写评论</a>
+                                                                                                            <a class="btn btn-complaint" href="mailto:service@dcloud.io?subject=插件市场使用争议投诉&body=插件名称【uni-nav-bar】插件链接【https://ext.dcloud.net.cn/plugin?id=27897】提示：请具体说明插件市场使用过程中产生的争议及投诉内容，我们将尽快给您答复。"
+                                       target="blank">向官方投诉</a>
+                                </div>
+                                <div class="rating-body">
+                                    <div class="col-lg-12 no-rating"
+                                         style="display: block;">
+                                        <p>暂无用户评论。</p>
+                                    </div>
+                                    <div class="rating-content"
+                                         style="display: none">
+                                        <div id="rating_list">
+
+                                        </div>
+                                        <div class="rating-footer">
+                                            <a id="load_more" class="btn btn-default pull-right"
+                                               href="javascript:void(0)"
+                                               role="button"
+                                               data-loading-text="<span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>正在加载..."
+                                               onclick="loadRating()">加载更多...</a>
+                                            <div class="pull-right" id="no_more" style="display: none">
+                                                <span>没有更多评论了。</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                                    </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 sidebar">
+                                        
+                                                            <div class="row sidebar-list-title">
+    <ul class="nav-tab">
+        <li class="active">
+            <a>他的插件</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row sidebar-list" style="margin-bottom: 50px;">
+            <div class="row info">
+                        <div class="col-lg-12">
+                <h3 class="title">
+                    <a href="/plugin?id=55">uni-ui </a>
+                </h3>
+            </div>
+
+                        <div class="col-lg-12">
+                                    <a class="badge bg-green"
+                       href="/search?q=uni-ui">uni-ui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uniui">uniui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=UI组件库">UI组件库</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=ui框架">ui框架</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=ui库">ui库</a>
+                                </div>
+
+                        <div class="col-lg-12">
+                <div class="rating">
+                    <div class="star-rating"
+                         title="评分: 3.9 （365人评分）">
+                        <div class="star-rating-top"
+                             style="width:75%">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                        <div class="star-rating-bottom">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                    </div>
+                    <span class="star-rating-text">（365）</span>
+                </div>
+            </div>
+
+                        <div class="col-lg-12">
+                <p class="description">
+                    uni-ui 是基于uni-app的、全端兼容的、高性能UI框架
+                </p>
+            </div>
+
+                        <div class="col-lg-12 more-info">
+                <div class="download col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/download.png">&nbsp;下载&nbsp;1475898
+                </div>
+                <div class="support col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/heart.png">&nbsp;赞赏&nbsp;15
+                </div>
+            </div>
+        </div>
+            <div class="row info">
+                        <div class="col-lg-12">
+                <h3 class="title">
+                    <a href="/plugin?id=4941">hello-uniapp 示例工程 </a>
+                </h3>
+            </div>
+
+                        <div class="col-lg-12">
+                                    <a class="badge bg-green"
+                       href="/search?q=hello-uniapp">hello-uniapp</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uni-app">uni-app</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uni-ui">uni-ui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=示例工程">示例工程</a>
+                                                </div>
+
+                        <div class="col-lg-12">
+                <div class="rating">
+                    <div class="star-rating"
+                         title="评分: 3.8 （49人评分）">
+                        <div class="star-rating-top"
+                             style="width:75%">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                        <div class="star-rating-bottom">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                    </div>
+                    <span class="star-rating-text">（49）</span>
+                </div>
+            </div>
+
+                        <div class="col-lg-12">
+                <p class="description">
+                    uni-app 框架示例，一套代码，同时发行到iOS、Android、H5、小程序等多个平台，请使用手机扫码快速体验 uni-app 的强大功能
+                </p>
+            </div>
+
+                        <div class="col-lg-12 more-info">
+                <div class="download col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/download.png">&nbsp;下载&nbsp;1090358
+                </div>
+                <div class="support col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/heart.png">&nbsp;赞赏&nbsp;2
+                </div>
+            </div>
+        </div>
+            <div class="row info">
+                        <div class="col-lg-12">
+                <h3 class="title">
+                    <a href="/plugin?id=329">uni-popup 弹出层 </a>
+                </h3>
+            </div>
+
+                        <div class="col-lg-12">
+                                    <a class="badge bg-green"
+                       href="/search?q=uni-ui">uni-ui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=弹出层">弹出层</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=弹窗">弹窗</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=popup">popup</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=弹框">弹框</a>
+                                </div>
+
+                        <div class="col-lg-12">
+                <div class="rating">
+                    <div class="star-rating"
+                         title="评分: 3.7 （1093人评分）">
+                        <div class="star-rating-top"
+                             style="width:70%">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                        <div class="star-rating-bottom">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                    </div>
+                    <span class="star-rating-text">（1093）</span>
+                </div>
+            </div>
+
+                        <div class="col-lg-12">
+                <p class="description">
+                     Popup 组件，提供常用的弹层
+                </p>
+            </div>
+
+                        <div class="col-lg-12 more-info">
+                <div class="download col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/download.png">&nbsp;下载&nbsp;463234
+                </div>
+                <div class="support col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/heart.png">&nbsp;赞赏&nbsp;41
+                </div>
+            </div>
+        </div>
+            <div class="row info">
+                        <div class="col-lg-12">
+                <h3 class="title">
+                    <a href="/plugin?id=28">uni-icons 图标 </a>
+                </h3>
+            </div>
+
+                        <div class="col-lg-12">
+                                    <a class="badge bg-green"
+                       href="/search?q=uni-ui">uni-ui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uniui">uniui</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=icon">icon</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=图标">图标</a>
+                                                </div>
+
+                        <div class="col-lg-12">
+                <div class="rating">
+                    <div class="star-rating"
+                         title="评分: 3.5 （311人评分）">
+                        <div class="star-rating-top"
+                             style="width:70%">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                        <div class="star-rating-bottom">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                    </div>
+                    <span class="star-rating-text">（311）</span>
+                </div>
+            </div>
+
+                        <div class="col-lg-12">
+                <p class="description">
+                    图标组件，用于展示移动端常见的图标，可自定义颜色、大小。
+                </p>
+            </div>
+
+                        <div class="col-lg-12 more-info">
+                <div class="download col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/download.png">&nbsp;下载&nbsp;353997
+                </div>
+                <div class="support col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/heart.png">&nbsp;赞赏&nbsp;4
+                </div>
+            </div>
+        </div>
+            <div class="row info">
+                        <div class="col-lg-12">
+                <h3 class="title">
+                    <a href="/plugin?id=3268">uni-admin 基础框架 </a>
+                </h3>
+            </div>
+
+                        <div class="col-lg-12">
+                                    <a class="badge bg-green"
+                       href="/search?q=admin">admin</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uniCloud">uniCloud</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=管理后台">管理后台</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=云后台">云后台</a>
+                                                        <a class="badge bg-green"
+                       href="/search?q=uni-admin">uni-admin</a>
+                                </div>
+
+                        <div class="col-lg-12">
+                <div class="rating">
+                    <div class="star-rating"
+                         title="评分: 4.1 （407人评分）">
+                        <div class="star-rating-top"
+                             style="width:80%">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                        <div class="star-rating-bottom">
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                            <span class="glyphicon"></span>
+                        </div>
+                    </div>
+                    <span class="star-rating-text">（407）</span>
+                </div>
+            </div>
+
+                        <div class="col-lg-12">
+                <p class="description">
+                    基于uni-app &amp; uniCloud的后台管理项目模板（管理后台开发必备神器）
+                </p>
+            </div>
+
+                        <div class="col-lg-12 more-info">
+                <div class="download col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/download.png">&nbsp;下载&nbsp;305828
+                </div>
+                <div class="support col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <img src="//img-cdn-aliyun.dcloud.net.cn/dev/img/ext/heart.png">&nbsp;赞赏&nbsp;5
+                </div>
+            </div>
+        </div>
+                <div class="row info download-plugin-more">
+            <div class="col-md-12">
+                <a target="_blank" href="/publisher?id=586192">更多</a>
+            </div>
+        </div>
+    </div>
+                    <div class="row sidebar-list-title">
+    <ul class="nav-tab">
+        <li class="active">
+                            <a>作者排行</a>
+                    </li>
+    </ul>
+</div>
+
+<style>
+        @media (min-width: 2160px) {
+        .sidebar-list.top-publisher .info:nth-child(n+16) {
+            display: none;
+        }
+
+        .sidebar-list.top-publisher .info:nth-child(15) {
+            border-bottom: none;
+        }
+    }
+
+    .total-sales {
+        color: #22ac38;
+    }
+</style>
+
+
+<div class="row sidebar-list top-publisher">
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/1@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=586192">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/67/43/81_avatar_max.jpg?=1613651270">
+                    <br>
+                    <span class="publisher-name">
+                        DCloud前端团队
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">174</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;12185103&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;1918&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/2@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=242774">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/12/54/99_avatar_max.jpg?=1615885669">
+                    <br>
+                    <span class="publisher-name">
+                        陌上华年
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">169</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;248343&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;1816&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/3@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=89985">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/82/36/40_avatar_max.jpg?=1683768837">
+                    <br>
+                    <span class="publisher-name">
+                        uv_UI
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">86</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;282403&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;1751&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/4@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=93179">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/88/01/68_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        秋云
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">1</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;402151&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;1428&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/5@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=54602">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/15/86/43_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        uViewUI
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">2</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;1386742&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;348&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/6@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=766365">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/81/10/04_avatar_max.jpg?=1626948451">
+                    <br>
+                    <span class="publisher-name">
+                        FirstUI
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">34</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;577112&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;902&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/7@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=202">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/08/81/38_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        ThorUI_echo
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">2</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;114325&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;1123&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/8@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=362188">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/39/71/97_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        奥巴马a
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">17</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;245584&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;739&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/9@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=274945">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/40/45/61_avatar_max.jpg?=1689247124">
+                    <br>
+                    <span class="publisher-name">
+                        前端组件开发
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">140</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;110205&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;796&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/10@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=21031">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/12/01/79_avatar_max.jpg?=1767931198">
+                    <br>
+                    <span class="publisher-name">
+                        ultraUI
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">8</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;161529&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;509&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/11@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=54309">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/89/66/50_avatar_max.jpg?=1685847767">
+                    <br>
+                    <span class="publisher-name">
+                        uni创意插件
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">62</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;62760&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;544&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/12@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=3053">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/03/30/21_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        猫猫猫猫
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">17</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;146982&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;419&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/13@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=5536">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/000/51/83/99_avatar_max.jpg?=0">
+                    <br>
+                    <span class="publisher-name">
+                        回梦無痕
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">11</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;194350&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;338&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/14@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=2190580">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/002/91/73/25_avatar_max.jpg?=1761834616">
+                    <br>
+                    <span class="publisher-name">
+                        VK168
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">18</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;124682&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;380&nbsp;
+                    </p>
+                            </div>
+        </div>
+            <div class="row info">
+            <div class="col-md-1 col-sm-1 col-xs-1 number">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/15@2x.png">
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 base-info">
+                <a href="/publisher?id=356088">
+                    <img class="avatar" src="https://img-cdn-tc.dcloud.net.cn/uploads/avatar/001/58/76/08_avatar_max.jpg?=1663379648">
+                    <br>
+                    <span class="publisher-name">
+                        图鸟科技
+                                                    <img class="v" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/v.png">
+                                            </span>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 more-info">
+                <p>发布插件：<span class="count">11</span></p>
+                <p class="download">
+                    <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/download.png">
+                    下载&nbsp;109130&nbsp;
+                </p>
+
+                                    <p class="support">
+                        <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/heart.png">
+                        赞赏&nbsp;368&nbsp;
+                    </p>
+                            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+
+        </div>
+
+                <div class="modal fade" id="support_modal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="hidden-xs modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/support_close.png">
+                        </button>
+                        <h4 class="modal-title">
+                            <img class="background" src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/support_bg.png">
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row preset-amount">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount active" data-value="5">5元</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount" data-value="10">10元</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount" data-value="20">20元</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount" data-value="50">50元</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount" data-value="100">100元</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default btn-lg btn-pay-amount" data-value="200">200元</a>
+                                </div>
+                            </div>
+                            <div class="row custom">
+                                <a href="javascript:void(0)">自定义</a>
+                            </div>
+                        </div>
+                        <div class="row custom-amount" style="display: none;">
+                            <div class="col-sm-12">
+                                <input type="number" min="1" max="10000" value="5" placeholder="赞赏金额 ￥0.3-￥10000"
+                                       id="pay_amount" class="form-control input-lg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm-12 payment-method"
+                             
+                        >
+                        </div>
+                        <div class="col-sm-12">
+                            <a class="btn btn-support" onclick="support()"
+                               data-loading-text="<span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>获取支付信息..."
+                            >
+                                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/support_white.png">
+                                赞赏<span class="count"></span>
+                            </a>
+                        </div>
+                                            </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="display: none">
+            <textarea id="self_comment"></textarea>
+        </div>
+
+        
+        <div style="display: none">
+            <textarea id="plugin_dbinit_content"></textarea>
+        </div>
+
+        <div style="display: none">
+            <textarea id="plugin_functioninit_content"></textarea>
+        </div>
+    
+
+
+
+
+    <div class="modal fade" id="progressModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="">部署进度</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    </div>
+
+        <script type="text/html" id="quoHtml1">
+        <div class="tooltip" role="tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner">
+
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="quoHtm2">
+        <div class="tooltip" role="tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner">
+            </div>
+        </div>
+    </script>
+
+        <div class="modal fade" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body…</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="muted credit">
+            <div class="logo">
+                <img src="//img-cdn-tx.dcloud.net.cn/dev/img/ext/footer_logo.png">
+            </div>
+            <p>DCloud 即数字天堂(北京)网络技术有限公司是W3C成员及HTML5中国产业联盟发起单位</p>
+            <p><a href="mailto:bd@dcloud.io" target="blank">商务合作：bd@dcloud.io</a>、<a
+                        href="https://ask.dcloud.net.cn/article/37443" target="_blank">广告投放</a>&nbsp;|&nbsp;
+                <a href="mailto:service@dcloud.io?subject=插件市场使用争议投诉&body=提示：请具体说明插件市场使用过程中产生的争议及投诉内容，我们将尽快给您答复。"
+                   target="blank">向官方投诉</a></p>
+            <p><a href="http://beian.miit.gov.cn/" target="_blank">京ICP备12046007号-4</a> | <a
+                        href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035340"
+                        target="_blank"><img src="https://web-assets.dcloud.net.cn/unidoc/zh/jgwab.png"
+                                             style="width: 20px;height: 20px"/>京公网安备：11010802035340号</a></p>
+            <p>增值电信业务经营许可证编号：合字B2-20220010 | 国家信息安全等级保护三级，证书编号：11010813802-20001 | <a href="https://web-ext-storage.dcloud.net.cn/ext/qiyexinyonggongshi/QQ20240926-102845.png" target="_blank">企业信用信息</a></p>
+                    </div>
+    </div>
+</div>
+</body>
+
+                <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/v1.vue.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/iview.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/festival.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/app.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/moment.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/daterange.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/jalc.min.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/bootstrap-hover-dropdown.min.js"></script>
+
+
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/highcharts.js"></script>
+    <script src="//js-cdn-aliyun.dcloud.net.cn/dev/js/no-data-to-display.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/select2v4.0.3.full.min.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/simple-pinyin.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/parsley.min.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/parsley/zh_cn.js"></script>
+
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/bootstrap-dialog.min.js"></script>
+<script>
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_DEFAULT] = '提示';
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_INFO] = '提示';
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_PRIMARY] = '提示';
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_SUCCESS] = '成功';
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_WARNING] = '警告';
+    BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_DANGER] = '危险';
+    BootstrapDialog.DEFAULT_TEXTS['OK'] = '确认';
+    BootstrapDialog.DEFAULT_TEXTS['CANCEL'] = '取消';
+    BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = '确认';
+
+    function _openEditableDialog($title, $formData, $url, $ajaxMethod, $ajaxData, $successCallback, useAlert) {
+        var message = [];
+        if (!useAlert) {
+            message = [
+                '<div class="form">',
+                '<div class="alert alert-danger" style="display: none;"><span id="error_msg"></span></div>'
+            ];
+        }
+
+
+        for (var i = 0; i < $formData.length; i++) {
+            if ($formData[i].type == 'input') {
+                message.push('<div class="form-group">');
+                message.push('<label for="' + $formData[i].id + '">' + $formData[i].label + '</label>');
+                message.push('<input class="form-control" id="' + $formData[i].id + '" name="' + $formData[i].id + '" placeholder="" value="' + ($formData[i].value ? $formData[i].value : '') + '">');
+                message.push('</div>');
+            } else if ($formData[i].type == 'checkbox') {
+                message.push('<div class="checkbox">');
+                message.push('<label>');
+                if ($formData[i].value) {
+                    message.push('<input type="checkbox" checked="checked" id="' + $formData[i].id + '">' + $formData[i].label);
+                } else {
+                    message.push('<input type="checkbox" id="' + $formData[i].id + '">' + $formData[i].label);
+                }
+                message.push('</label>');
+                message.push('</div>');
+            }
+        }
+
+        message.push('</div>');
+
+        var size = BootstrapDialog.SIZE_WIDE;
+        var type = BootstrapDialog.TYPE_PRIMARY;
+        _openPostDialog($title, message.join(''), size, type, $url, $ajaxMethod, $ajaxData, $successCallback);
+    }
+
+    function _openConfirmDialog($title, $message, $url, $ajaxMethod, $ajaxData, $successCallback) {
+        _openPostDialog($title, $message, BootstrapDialog.SIZE_NORMAL, BootstrapDialog.TYPE_PRIMARY, $url, $ajaxMethod, $ajaxData, $successCallback);
+    }
+
+    function _openDeleteDialog($title, $message, $url, $ajaxMethod, $ajaxData, $successCallback) {
+        $message = $message ? $message : "确认要删除吗? ";
+        _openPostDialog($title, $message, BootstrapDialog.SIZE_NORMAL, BootstrapDialog.TYPE_DANGER, $url, $ajaxMethod, $ajaxData, $successCallback);
+    }
+
+
+    function _openPostDialog($title, $message, $size, $type, $url, $ajaxMethod, $ajaxData, $successCallback) {
+        BootstrapDialog.show({
+            title: $title,
+            message: $message,
+            size: $size,
+            type: $type,
+            buttons: [
+                {
+                    label: '确认',
+                    cssClass: 'btn-primary',
+                    action: function (dialogRef) {
+                        var $button = this;
+                        $button.disable();
+                        $button.spin();
+                        dialogRef.setClosable(false);
+
+                        var $ajax = $ajaxMethod == 'get' ? $.getJSON : $.post;
+                        var $_ajaxData = $ajaxData ? $ajaxData() : {};
+                        $ajax($url, $_ajaxData, function (response) {
+                            $button.enable();
+                            $button.stopSpin();
+                            dialogRef.setClosable(true);
+                            if (response.ret == 0) {
+                                $('#error_msg').parent().hide();
+                                dialogRef.close();
+                                $successCallback && $successCallback(response);
+                            } else {
+                                var errElem = $('#error_msg');
+                                if (errElem.length > 0) {
+                                    errElem.parent().show();
+                                    errElem.html(response.desc);
+                                    dialogRef.close();
+                                } else {
+                                    BootstrapDialog.alert(response.desc);
+                                }
+
+                            }
+                        }).error(function (response) {
+                            $button.enable();
+                            $button.stopSpin();
+                            dialogRef.setClosable(true);
+                            var errElem = $('#error_msg');
+                            if (errElem.length > 0) {
+                                errElem.text(response);
+                                errElem.parent().show();
+                                dialogRef.close();
+                            } else {
+                                BootstrapDialog.alert(response.desc);
+                            }
+                        });
+                    }
+                },
+                {
+                    label: '取消',
+                    action: function (dialogRef) {
+                        dialogRef.close();
+                    }
+                }
+            ]
+        });
+    }
+</script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            type: 'GET',
+            localCache: window.sessionStorage,
+            cacheKey: function (options) {
+                var url = options.url.replace(/jQuery.*/, '');
+
+                // Strip _={timestamp}, if cache is set to false
+                if (options.cache === false) {
+                    url = url.replace(/([?&])_=[^&]*/, '');
+                }
+
+                if (options.data) {
+                    return url + '?' + (options.data || '');
+                } else {
+                    return url;
+                }
+            },
+            error: function (result) {
+                console.log(result);
+                if (result.status >= 500) {
+                    BootstrapDialog.alert('服务器错误, 请稍后重试!');
+                } else if (result.status == 401) {
+                    BootstrapDialog.show({
+                        message: "请重新登录！",
+                        type: BootstrapDialog.TYPE_PRIMARY,
+                        buttons: [{
+                            label: '确认',
+                            action: function (dialogRef) {
+                                location.reload();
+                            }
+                        }]
+                    });
+                }
+            }
+        });
+
+        function matchStart(term, text) {
+            mod = simplePinyin(text);
+            termUpperCase = term.toUpperCase();
+            inFull = mod.full.toUpperCase().indexOf(termUpperCase) !== -1;
+            inShort = mod.short.toUpperCase().indexOf(termUpperCase) !== -1;
+            pinyin = (inFull || inShort);
+
+            origin = text.toUpperCase().indexOf(termUpperCase) !== -1;
+            return (pinyin || origin);
+        }
+
+        var _startDate, _endDate;
+
+        $(function () {
+            // 选择应用
+            $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
+                var $app_select = $(".app_select").select2({
+                    matcher: oldMatcher(matchStart)
+                });
+                $app_select.on("select2:select", function (e) {
+                    $("#app_id").val(this.value);
+                    if (typeof(loadData) == "function") {
+                        loadData();
+                    }
+                });
+            });
+
+            var datePickerDefaultOptions = {
+                locale: {
+                    format: 'YYYY-MM-DD'
+                },
+                minDate: "2016-01-08",
+                maxDate: app.toDay('-1'),//默认显示昨日时间
+                ranges: {
+                    '过去7天': [moment().subtract(7, 'days'), moment()],
+                    '过去30天': [moment().subtract(30, 'days'), moment()],
+                    '过去60天': [moment().subtract(60, 'days'), moment()],
+                },
+                startDate: app.toDay('-7'),
+                endDate: app.toDay('-1'),
+                singleDatePicker: false
+            };
+
+            if (typeof(datePicker) != 'undefined') {
+                if (datePicker.singleDatePicker !== undefined) {
+                    datePickerDefaultOptions.singleDatePicker = datePicker.singleDatePicker;
+                }
+
+                if (datePicker.start !== undefined) {
+                    datePickerDefaultOptions.startDate = getDate(datePicker.start);
+                    _startDate = datePickerDefaultOptions.startDate;
+                } else {
+                    _startDate = app.toDay(-7);
+                }
+
+                if (datePicker.end !== undefined) {
+                    datePickerDefaultOptions.endDate = getDate(datePicker.end);
+                    _endDate = datePickerDefaultOptions.endDate;
+                } else {
+                    _endDate = app.toDay(-1);
+                }
+
+                if (datePicker.min !== undefined) {
+                    datePickerDefaultOptions.minDate = getDate(datePicker.min);
+                }
+
+                if (datePicker.max !== undefined) {
+                    datePickerDefaultOptions.maxDate = getDate(datePicker.max);
+                }
+            } else {
+                _startDate = app.toDay(-7);
+                _endDate = app.toDay(-1);
+            }
+
+            // 选择日期
+            $('input[name="daterange"]').daterangepicker(datePickerDefaultOptions);
+
+            // 图提示信息
+            $('.custom').popover(
+                    {
+                        trigger: 'hover',
+                        template: document.getElementById("quoHtml1").innerText,
+                        html: true
+                    }
+            );
+
+            // 列表提示信息
+            $('.custom2').popover(
+                    {
+                        trigger: 'hover',
+                        template: document.getElementById("quoHtm2").innerText,
+                        html: true
+                    }
+            );
+
+            if (typeof(loadData) == "function") {
+                loadData();
+            }
+        });
+
+        // 标签切换
+        $('#item_tabs a').click(function (e) {
+            if (e.currentTarget.id == $('#item_active_id').val()) {
+                return;
+            }
+
+            $('#item_active_id').val(e.currentTarget.id);
+            if (typeof (itemChange) == 'function') {
+                itemChange();
+            }
+
+            if (typeof(updateChart) == "function") {
+                updateChart();
+            } else if (typeof(loadData) == "function") {
+                loadData();
+            }
+        });
+
+        function getDate(option) {
+            if (isNaN(option)) {
+                return option;
+            } else {
+                return app.toDay(option);
+            }
+        }
+
+
+        function startDate() {
+            return app.globalDate['start'] ? app.globalDate['start'] : _startDate;
+        }
+
+        function endDate() {
+            return app.globalDate['end'] ? app.globalDate['end'] : _endDate;
+        }
+
+        $('#daterange').on('apply.daterangepicker', function (ev, picker) {
+            var startDate = picker.startDate['_d'];
+            var endDate = picker.endDate['_d'];
+            app.globalDate['start'] = app.getDate(startDate);
+            app.globalDate['end'] = app.getDate(endDate);
+
+            if (typeof(loadData) == "function") {
+                loadData();
+            }
+        });
+
+        function chartLoading(loading) {
+            var chart = $('#container').highcharts();
+            if (!chart) {
+                return;
+            }
+
+            if (loading) {
+                chart.hideNoData();
+                chart.showLoading();
+            } else {
+                chart.hideLoading();
+                if (!chart.hasData()) {
+                    chart.hideNoData();
+                    chart.showNoData("暂无统计数据");
+                }
+            }
+        }
+    </script>
+
+
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/bootstrap-hover-dropdown.min.js"></script>
+
+    <script>
+        $.ajaxSetup({
+            error: function (result) {
+                if (result.status == 401) {
+                    needLogin();
+                }
+            }
+        });
+
+        $(function () {
+            $('.preview-img.should-pop').popover({
+                trigger: 'hover',
+                content: function () {
+                    return '<img src="' + this.attributes['data-src'].value + '">';
+                },
+                html: true
+            });
+
+            getUnreadMsg();
+        });
+
+        // 获取未读消息
+        var getUnreadMsg = function () {
+            var url = '/unread-msg';
+            $.getJSON(url, {}, function (res) {
+                if (res.ret == 0) {
+
+                    var data = res.data;
+                    var unReadMsg = data.unReadMsg;
+                    if (unReadMsg > 0) {
+                        $('#user-message').addClass('red-point');
+                    } else {
+                        $('#user-message').removeClass('red-point');
+                    }
+                }
+            });
+        }
+
+        var needLogin = function () {
+            BootstrapDialog.show({
+                title: '登录原因',
+                message: "插件市场因防刷排名机制需要登录才可下载插件。另外登录后可对插件赞赏、购买、评价。",
+                type: BootstrapDialog.TYPE_PRIMARY,
+                onhide: function(){
+                    $('.btn-hx-import').button('reset');
+                    $('.btn-hx-import-example').button('reset');
+                    $('.btn-download').button('reset');
+                    $('.btn-download-example').button('reset');
+
+                    HBuilderXImportEvent('关闭登录提示');
+                },
+                buttons: [{
+                    label: '登录',
+                    cssClass: 'btn-primary',
+                    id: 'btn-login',
+                    action: function (dialogRef) {
+                        var $button = this;
+                        $button.disable();
+                        $button.spin();
+                        HBuilderXImportEvent('前往登录');
+                        $('#login')[0].click();
+                    }
+                }]
+            });
+        };
+
+
+        var gotoLogin = function (type, msg) {
+            if (msg) {
+                var message = msg;
+            } else {
+                if (type === 'interest') {
+                    var message = '未登录，登录后方可设置忽略指定插件的更新。';
+                } else {
+                    var message = '未登录，登录后方可收藏插件。';
+                }
+            }
+
+            BootstrapDialog.show({
+                title: '提示',
+                message: message,
+                type: BootstrapDialog.TYPE_PRIMARY,
+                buttons: [{
+                    label: '登录',
+                    cssClass: 'btn-primary',
+                    id: 'btn-login',
+                    action: function (dialogRef) {
+                        dialogRef.close();
+                        $('#login')[0].click();
+                    }
+                }]
+            });
+        }
+    </script>
+
+
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/star-rating.min.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript" src="//js-cdn-aliyun.dcloud.net.cn/dev/js/highlight.js/highlight.min.js"></script>
+    <script>
+        window.Config = {
+            'plugin': {
+                'id': 27897,
+                'name': 'uni-nav-bar',
+                'category_level1': 2,
+                'category_level2': 21,
+                'price': '0.00',
+                'sell_type':1,
+                'code_price': '0.00',
+                'db_init': '0',
+                'function_init': '0',
+                'platforms': '',
+                'is_modules': 1,
+                'uni_modules_hx_version': '3.1.0',
+                'defaultPayChannel': 'ali_qr',
+                'umsPayExpDesc' :'支付失败？<a href="javascript:;" class="ums-change-channel">点击此处</a>切换支付方式。',
+                'renewProportion':15,
+                'isHaveAd':0,
+                'adType':0,
+                'adTypeMod': '手机微信',
+                'adTypeName': '微信',
+                'isCanSkip':0,
+                'isOfficial': 1,
+                'showTmpBtn': 1,
+                'hxPlatformConfig': null,
+            },
+            'canRating': false,
+            'registerDays': 0,
+            'rating': {
+                'id': '0',
+                'score': '0'
+            },
+            'validEmail': false,
+            'userType': '',
+            'opration': '',
+            'appList': null,
+            'boughtAppList': [],
+            'tryAppList': [],
+            'login': false,
+            'allowExtSellPolicy': false,
+            'upgrade_order': {
+                'id': '',
+                'order_id': '',
+                'total_fee': '',
+                'space_id': '',
+                'is_deployed': '',
+                'is_dbinit': '',
+                'appid': '',
+                'buy_type': 2,
+            },
+        };
+    </script>
+
+            <script src="//js-cdn-aliyun.dcloud.net.cn/dev/build/js/ext/plugin-5aad69e4aa.js"></script>
+        <script>
+
+        $('#functionList').on('hidden.bs.collapse', function () {
+            var encryptNum = $('.functionList').attr('data-encrypt-num');
+            var title = '查看';
+            if (encryptNum != 0) {
+                title += '(' + encryptNum + '个已加密)';
+            }
+            $('.functionList').text(title);
+        });
+
+        $('#functionList').on('show.bs.collapse', function () {
+            var encryptNum = $('.functionList').attr('data-encrypt-num');
+            var title = '收起';
+            if (encryptNum != 0) {
+                title += '(' + encryptNum + '个已加密)';
+            }
+            $('.functionList').text(title);
+        });
+
+                
+                
+        // 升级为源码授权版
+        var upgradeCode = function(){
+                        needLogin();
+            return;
+                                                BootstrapDialog.alert('没有可升级的订单！');
+                                }
+
+        // 续费源码授权版
+        var renewCode = function(){
+                        needLogin();
+            return;
+            
+            var spaceData = {};
+                        var messageHtml = function () {
+                var $text = $('<div></div>');
+                var html = '';
+                html += '<p>注意事项：</p>';
+                html += '<p>1、购买源码授权版在1年保修期过后，仍可使用所购插件，但无法通过插件市场更新最新版本。</p>';
+                html += '<p>2、每次续费订单保修期仍为1年，续费订单价格根据购买时的原始订单价格及续费比例计算。</p>';
+                html += '<ul>';
+
+
+
+                                html += '</ul>';
+                $text.append(html);
+
+                $text.find('li').on('click', function (e) {
+                    $('.app-list-dialog ul li').removeClass('active');
+                    spaceData = {
+                        id: e.target.attributes['data-id'].value,
+                        spaceId: e.target.attributes['data-spaceid'].value,
+                        name: e.target.attributes['data-name'].value,
+                        provider: e.target.attributes['data-name'].value,
+                        buy_type: 2,
+                        renewBindId: e.target.attributes['data-bind-id'].value,
+                    };
+                    $(e.target).addClass('active');
+                });
+                return $text;
+            }
+            BootstrapDialog.show({
+                title: '您要为哪个服务空间续费源码授权版？',
+                message: messageHtml(),
+                closable: false,
+                cssClass: 'app-list-dialog edit_dialog',
+                buttons: [
+                    {
+                        label: '取消',
+                        cssClass: 'btn-default',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    },
+                    {
+                        label: '续费源码授权版',
+                        cssClass: 'btn-primary',
+                        closable: false,
+                        autospin: true,
+                        action: function (dialogRef) {
+                            var $button = this;
+                            $button.disable();
+                            $button.spin();
+                            dialogRef.setClosable(false);
+                            spaceBuy(spaceData, dialogRef);
+                        }
+                    }]
+            });
+        }
+
+        // 续费普通授权版
+        var renewEncrypt = function(){
+                        needLogin();
+            return;
+            
+            var spaceData = {};
+                        var messageHtml = function () {
+                var $text = $('<div></div>');
+                var html = '';
+                html += '<p>注意事项：</p>';
+                html += '<p>1、普通授权版在1年保修期过后，仍可使用所购插件，但无法通过插件市场更新最新版本。</p>';
+                html += '<p>2、每次续费订单保修期仍为1年，续费订单价格根据购买时的原始订单价格及续费比例计算。</p>';
+                html += '<ul>';
+
+                                html += '</ul>';
+                $text.append(html);
+
+                $text.find('li').on('click', function (e) {
+                    $('.app-list-dialog ul li').removeClass('active');
+                    spaceData = {
+                        id: e.target.attributes['data-id'].value,
+                        spaceId: e.target.attributes['data-spaceid'].value,
+                        name: e.target.attributes['data-name'].value,
+                        provider: e.target.attributes['data-name'].value,
+                        buy_type: 1,
+                        renewBindId: e.target.attributes['data-bind-id'].value,
+                    };
+                    $(e.target).addClass('active');
+                });
+                return $text;
+            }
+            BootstrapDialog.show({
+                title: '您要为哪个服务空间续费普通授权版？',
+                message: messageHtml(),
+                closable: false,
+                cssClass: 'app-list-dialog edit_dialog',
+                buttons: [
+                    {
+                        label: '取消',
+                        cssClass: 'btn-default',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    },
+                    {
+                        label: '续费普通授权版',
+                        cssClass: 'btn-primary',
+                        closable: false,
+                        autospin: true,
+                        action: function (dialogRef) {
+                            var $button = this;
+                            $button.disable();
+                            $button.spin();
+                            dialogRef.setClosable(false);
+                            spaceBuy(spaceData, dialogRef);
+                        }
+                    }]
+            });
+        }
+
+        // 绑定appid插件升级为源码授权版
+        var bindAppPluginUpgradeCode = function(){
+                        needLogin();
+            return;
+                                                BootstrapDialog.alert('没有可升级的订单！');
+                                        }
+
+        // uts续费普通授权版
+        var bindAppPluginRenewEncrypt = function(){
+                        needLogin();
+            return;
+            
+            var appData = {};
+                        var messageHtml = function () {
+                var $text = $('<div></div>');
+                var html = '';
+                html += '<p>注意事项：</p>';
+                html += '<p>1、普通授权版在1年保修期过后，仍可使用所购插件，但无法通过插件市场更新最新版本。</p>';
+                html += '<p>2、每次续费订单保修期仍为1年，续费订单价格根据购买时的原始订单价格及续费比例计算。</p>';
+                html += '<ul>';
+
+                                html += '</ul>';
+                $text.append(html);
+
+                $text.find('li').on('click', function (e) {
+                    $('.app-list-dialog ul li').removeClass('active');
+                    appData = {
+                        appid: e.target.attributes['data-id'].value,
+                        name: e.target.attributes['data-name'].value,
+                        buy_type: 3,
+                        renewBindId: e.target.attributes['data-bind-id'].value,
+                        android_package_name: e.target.attributes['data-android'].value,
+                        ios_bundle_id: e.target.attributes['data-ios'].value,
+                    };
+                    $(e.target).addClass('active');
+                });
+                return $text;
+            }
+            BootstrapDialog.show({
+                title: '您要为哪个项目续费普通授权版？',
+                message: messageHtml(),
+                closable: false,
+                cssClass: 'app-list-dialog edit_dialog',
+                buttons: [
+                    {
+                        label: '取消',
+                        cssClass: 'btn-default',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    },
+                    {
+                        label: '续费普通授权版',
+                        cssClass: 'btn-primary',
+                        closable: false,
+                        autospin: true,
+                        action: function (dialogRef) {
+                            var $button = this;
+                            $button.disable();
+                            $button.spin();
+                            dialogRef.setClosable(false);
+                            buy(appData, null, dialogRef);
+                        }
+                    }]
+            });
+        }
+
+        // uts续费源码授权版
+        var bindAppPluginRenewCode = function(){
+                        needLogin();
+            return;
+            
+            var appData = {};
+                        var messageHtml = function () {
+                var $text = $('<div></div>');
+                var html = '';
+                html += '<p>注意事项：</p>';
+                html += '<p>1、普通授权版在1年保修期过后，仍可使用所购插件，但无法通过插件市场更新最新版本。</p>';
+                html += '<p>2、每次续费订单保修期仍为1年，续费订单价格根据购买时的原始订单价格及续费比例计算。</p>';
+                html += '<ul>';
+
+                                    html += '</ul>';
+                    $text.append(html);
+
+                    $text.find('li').on('click', function (e) {
+                        $('.app-list-dialog ul li').removeClass('active');
+                        appData = {
+                            appid: e.target.attributes['data-id'].value,
+                            name: e.target.attributes['data-name'].value,
+                            buy_type: 4,
+                            renewBindId: e.target.attributes['data-bind-id'].value,
+                            android_package_name: e.target.attributes['data-android'].value,
+                            ios_bundle_id: e.target.attributes['data-ios'].value,
+                        };
+                        $(e.target).addClass('active');
+                    });
+                    return $text;
+            }
+            BootstrapDialog.show({
+                title: '您要为哪个项目续费源码授权版？',
+                message: messageHtml(),
+                closable: false,
+                cssClass: 'app-list-dialog edit_dialog',
+                buttons: [
+                    {
+                        label: '取消',
+                        cssClass: 'btn-default',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    },
+                    {
+                        label: '续费源码授权版',
+                        cssClass: 'btn-primary',
+                        closable: false,
+                        autospin: true,
+                        action: function (dialogRef) {
+                            var $button = this;
+                            $button.disable();
+                            $button.spin();
+                            dialogRef.setClosable(false);
+                            buy(appData, null, dialogRef);
+                        }
+                    }]
+            });
+        }
+
+        // 用户认证
+        var user_auth = function () {
+            var textMsg = '您尚未进行实名认证，请进行实名认证后在进行购买， <a href="https://dev.dcloud.net.cn/user/reg" target="_blank">点击进行实名认证</a>';
+            BootstrapDialog.show({
+                title: '提醒',
+                message: textMsg,
+                cssClass: 'edit_dialog',
+                buttons: [{
+                    label: '确认',
+                    cssClass: 'btn-primary',
+                    autospin: true,
+                    action: function (dialogRef) {
+                        dialogRef.close();
+                    }
+                }]
+            });
+        }
+
+        // 申请购买
+        var applyBuy = function (dialog = '',upgrade_order, bindType) {
+                        needLogin();
+            return;
+                        
+            var data = {
+                    plugin_id: $pluginData.id,
+                    buy_type: 2,
+                };
+            if (upgrade_order) {
+                data.order_id = upgrade_order.order_id;
+            }
+            $.post('/payment/apply', data, function (response) {
+                if (dialog) {
+                    dialog.close();
+                }
+                if (response.ret == 2000) {
+                    if (bindType == 'space') {
+                        var spaceData = {
+                            id: response.data.spaceId,
+                            is_dbinit: window.Config.upgrade_order.is_dbinit,
+                            is_deployed: window.Config.upgrade_order.is_deployed,
+                            buy_type: 6,
+                            order_id: response.data.orderId,
+                        };
+                        spaceBuy(spaceData);
+                    } else if (bindType == 'app') {
+                        var appData = {
+                            appid: response.data.appId,
+                            buy_type: '6',
+                            order_id: response.data.orderId,
+                        };
+                        choosePaymentMethod(appData);
+                    } else {
+                        BootstrapDialog.alert('购买插件绑定类型错误');
+                    }
+                } else {
+                    BootstrapDialog.alert(response.desc);
+                }
+            }).fail(function (result) {
+                if (result.status != 401) {
+                    BootstrapDialog.alert('服务器繁忙, 请刷新页面后重试!');
+                }
+            });
+        }
+
+        
+        $(function () {
+                                                        });
+    </script>
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6ad6f9c2978db31b82be94bbfb42a67e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+
+    var vueTopMessage = new Vue({
+        el:'#vueTopMessage',
+        data:{
+            tableLoading:false,
+            currTabId: '',
+            currentMessageId:'',
+            messageList:[],
+            categoryList:[],
+            isread: false
+        },
+        created(){
+                    },
+        methods:{
+            readAll(){
+                if(this.isread){
+                    return;
+                }
+                this.isread = true
+                $.post('/message/read-all').then(res=>{
+                    window.location.reload()
+                })
+            },
+            getNoReadCount(){
+                let total = 0
+                this.categoryList.map((x) => {
+                    total += x.noread
+                })
+
+                return total
+            },
+            loadData(){
+                var that = this
+                that.tableLoading = true
+                $.getJSON('/message/list',{
+                    page:1,
+                    size:10,
+                    category_id: that.currTabId
+                }).then(res=>{
+                    that.tableLoading = false
+                    that.messageList = res.data.data
+                })
+            },
+            loadCategory(){
+                var that = this
+                $.getJSON('/message/category').then(res=>{
+                    that.categoryList = res.data
+                })
+            },
+            switchAllTab(){
+                this.currTabId = ''
+                this.loadData()
+            },
+            switchTab(item){
+                this.currTabId = item._id
+                this.loadData()
+            },
+            showDetail(item){
+                let category_id = item.category_id || ''
+                if(category_id){
+                    for(let i in this.categoryList){
+                        let data = this.categoryList[i]
+                        if(data._id == category_id){
+                            let count = data.noread
+                            if(count > 0){
+                                count --
+                            }
+                            this.categoryList[i].noread = count
+                        }
+                    }
+                }
+            },
+            showMessage(item){
+                var id = item._id
+                if(this.currentMessageId == id){
+                    this.currentMessageId = ''
+                }else {
+                    this.currentMessageId = id
+                }
+                if (!item.is_read){
+                    item.is_read = true
+                    $.post('/message/read-message',{message_id: id}).then(res=>{})
+                    this.showDetail(item)
+                }
+
+            }
+        }
+    })
+
+    // 公告轮播
+    // (function ($) {
+    //     var notice = document.getElementById("notice");
+    //     notice.innerHTML += notice.innerHTML;
+    //     var delay = setTimeout(setScroll, 5000);
+    //     var num = 0;
+    //
+    //     function setScroll() {
+    //         if (num % 18 === 0) {
+    //             var timer = setInterval(function () {
+    //                 num++;
+    //                 notice.scrollTop = num;
+    //                 if (num % 18 === 0) {
+    //                     if (notice.scrollHeight / 2 === num) {
+    //                         notice.scrollTop = 0;
+    //                         num = 0;
+    //                     }
+    //                     clearInterval(timer);
+    //                     delay = setTimeout(setScroll, 5000);
+    //                 }
+    //             }, 10);
+    //         }
+    //     }
+    //
+    //     notice.onmouseover = function () {
+    //         clearTimeout(delay);
+    //     };
+    //     notice.onmouseout = function () {
+    //         delay = setTimeout(setScroll, 5000);
+    //     };
+    // }(window.jQuery));
+</script>
+</html>
